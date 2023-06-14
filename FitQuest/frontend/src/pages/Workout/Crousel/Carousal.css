@@ -1,0 +1,24 @@
+.CarouselContainer {
+  width: 100vw;
+  height: 100vh;
+  margin-bottom: 0;
+}
+
+.slider img {
+  width: 100vw;
+  height: 90vh;
+}
+button {
+  width: 9rem;
+  height: 3rem;
+  position: absolute;
+  top: 80vh;
+  left: 10%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  color: #000000;
+  border-radius: 5px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}

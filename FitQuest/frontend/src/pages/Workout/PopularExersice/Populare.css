@@ -1,0 +1,19 @@
+.exer {
+  position: relative;
+}
+.image {
+  /* position: relative; */
+  height: 20rem;
+  width: 30rem;
+  border-radius: 3rem 0;
+}
+.text {
+  position: absolute;
+  font-size: 25px;
+  top: 85%;
+  left: 40%;
+  color: #f3ffd4;
+  background-color: #292626;
+  padding: 3px 30px;
+  border-radius: 5px;
+}
