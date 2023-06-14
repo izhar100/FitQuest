@@ -1,0 +1,63 @@
+.dashboard {
+    position: relative;
+    margin-top: 10px;
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 80%;
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+    /* background-color: rgba(0, 0, 0, 0.5); Change the background color and transparency as desired */
+  }
+  
+  .text-over-image {
+    color: white;
+    font-size: 28px;
+    text-align: left;
+    margin-left: 20px;
+    font-family: Arial, sans-serif;
+    font-style:italic;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #ef8f66, #d4bb16);
+    animation-name: slide-up;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+    /* Additional styling for the text */
+  }
+  .join-now{
+    margin-top: 20px;
+    margin-left: 20px;
+    animation-name: slide-up;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .details{
+    text-align: center;
+  }
