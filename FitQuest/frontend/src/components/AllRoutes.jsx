@@ -1,3 +1,4 @@
+
 // import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/Dashboard/Dashboard";
@@ -10,6 +11,7 @@ import HireCoach from "../pages/HireCoach/HireCoach";
 import Account from "../pages/Account/Account";
 import Content from "../pages/Content/Content";
 import DashboardMain from "../pages/Admin/DashboardMain";
+
 
 const AllRoutes = () => {
   return (
