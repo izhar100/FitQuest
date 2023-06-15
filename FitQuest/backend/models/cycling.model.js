@@ -1,6 +1,7 @@
 const mongoose=require("mongoose")
 
 const cycleSchema=mongoose.Schema({
+  image:String,
   title:{type:String,required:true},
   duration: { type: Number, required: true },
   distance: { type: Number, required: true },
