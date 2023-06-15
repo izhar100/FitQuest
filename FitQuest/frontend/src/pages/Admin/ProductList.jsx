@@ -4,7 +4,7 @@ const ProductList = () => {
   return (
     <>
       <Header></Header>
-      <main class="content">
+      <main className="content">
         <Tables />
       </main>
     </>
