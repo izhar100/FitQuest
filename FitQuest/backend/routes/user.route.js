@@ -3,6 +3,7 @@ require("dotenv").config()
 const bcrypt=require("bcrypt")
 const jwt=require("jsonwebtoken")
 const { UserModel } = require("../models/user.model")
+const { userAuth } = require("../middleware/userAuth.middleware")
 const userRouter=express.Router()
 
 userRouter.post("/register",async(req,res)=>{
@@ -47,6 +48,22 @@ userRouter.post("/login",async(req,res)=>{
         }
     } catch (error) {
         res.status(400).json({error:error.message}) 
+    }
+})
+
+userRouter.patch("/update/:id",userAuth,async(req,res)=>{
+    const userID=req.body.userID
+    const id=req.params.id
+    try {
+        if(id==userID){
+            await UserModel.findByIdAndUpdate({_id:id},{...req.body})
+            res.status(200).json({msg:`Account updated`})
+        }else{
+            res.status(400).json({error:"Not Authorized"})
+        }
+
+    } catch (error) {
+        res.status(400).json({error:error.message})
     }
 })
 

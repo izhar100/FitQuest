@@ -1,6 +1,10 @@
 const express=require("express")
 const { DashboardDataModel } = require("../models/dashboardData.model")
+const { userAuth } = require("../middleware/userAuth.middleware")
+const { CoinModel } = require("../models/coins.model")
 const dashboardDataRoute=express.Router()
+
+dashboardDataRoute.use(userAuth)
 
 dashboardDataRoute.get("/",async(req,res)=>{
     const userID=req.body.userID
