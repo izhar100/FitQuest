@@ -12,6 +12,7 @@ function Tables() {
     return store?.adminProductReducer?.products;
   });
 
+  console.log(data);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,18 +30,21 @@ function Tables() {
 
   return (
     <div className="table-container">
-      <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
-        <div class="container-fluid px-0">
+      <nav className="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
+        <div className="container-fluid px-0">
           <div
-            class="d-flex justify-content-between w-100"
+            className="d-flex justify-content-between w-100"
             id="navbarSupportedContent"
           >
-            <div class="d-flex align-items-center">
-              <form class="navbar-search form-inline" id="navbar-search-main">
-                <div class="input-group input-group-merge search-bar">
-                  <span class="input-group-text" id="topbar-addon">
+            <div className="d-flex align-items-center">
+              <form
+                className="navbar-search form-inline"
+                id="navbar-search-main"
+              >
+                <div className="input-group input-group-merge search-bar">
+                  <span className="input-group-text" id="topbar-addon">
                     <svg
-                      class="icon icon-xs"
+                      className="icon icon-xs"
                       x-description="Heroicon name: solid/search"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -56,7 +60,7 @@ function Tables() {
                   </span>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="topbarInputIconLeft"
                     placeholder="Search"
                     aria-label="Search"
@@ -66,10 +70,10 @@ function Tables() {
               </form>
             </div>
 
-            <ul class="navbar-nav align-items-center">
-              <li class="nav-item dropdown">
+            <ul className="navbar-nav align-items-center">
+              <li className="nav-item dropdown">
                 <a
-                  class="nav-link text-dark notification-bell unread dropdown-toggle"
+                  className="nav-link text-dark notification-bell unread dropdown-toggle"
                   data-unread-notifications="true"
                   href="."
                   role="button"
@@ -78,7 +82,7 @@ function Tables() {
                   aria-expanded="false"
                 >
                   <svg
-                    class="icon icon-sm text-gray-900"
+                    className="icon icon-sm text-gray-900"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -86,39 +90,39 @@ function Tables() {
                     <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
                   </svg>
                 </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-center mt-2 py-0">
-                  <div class="list-group list-group-flush">
+                <div className="dropdown-menu dropdown-menu-lg dropdown-menu-center mt-2 py-0">
+                  <div className="list-group list-group-flush">
                     <a
                       href="."
-                      class="text-center text-primary fw-bold border-bottom border-light py-3"
+                      className="text-center text-primary fw-bold border-bottom border-light py-3"
                     >
                       Notifications
                     </a>
                     <a
                       href="."
-                      class="list-group-item list-group-item-action border-bottom"
+                      className="list-group-item list-group-item-action border-bottom"
                     >
-                      <div class="row align-items-center">
-                        <div class="col-auto">
+                      <div className="row align-items-center">
+                        <div className="col-auto">
                           {" "}
                           <img
                             alt=""
                             src="assets/img/profile-picture-1.jpg"
-                            class="avatar-md rounded"
+                            className="avatar-md rounded"
                           />
                         </div>
-                        <div class="col ps-0 ms-2">
-                          <div class="d-flex justify-content-between align-items-center">
+                        <div className="col ps-0 ms-2">
+                          <div className="d-flex justify-content-between align-items-center">
                             <div>
-                              <h4 class="h6 mb-0 text-small">Jose Leos</h4>
+                              <h4 className="h6 mb-0 text-small">Jose Leos</h4>
                             </div>
-                            <div class="text-end">
-                              <small class="text-danger">
+                            <div className="text-end">
+                              <small className="text-danger">
                                 a few moments ago
                               </small>
                             </div>
                           </div>
-                          <p class="font-small mt-1 mb-0">
+                          <p className="font-small mt-1 mb-0">
                             Added you to an event "Project stand-up" tomorrow at
                             12:30 AM.
                           </p>
@@ -127,27 +131,27 @@ function Tables() {
                     </a>
                     <a
                       href="."
-                      class="list-group-item list-group-item-action border-bottom"
+                      className="list-group-item list-group-item-action border-bottom"
                     >
-                      <div class="row align-items-center">
-                        <div class="col-auto">
+                      <div className="row align-items-center">
+                        <div className="col-auto">
                           {" "}
                           <img
                             alt=""
                             src="assets/img/profile-picture-2.jpg"
-                            class="avatar-md rounded"
+                            className="avatar-md rounded"
                           />
                         </div>
-                        <div class="col ps-0 ms-2">
-                          <div class="d-flex justify-content-between align-items-center">
+                        <div className="col ps-0 ms-2">
+                          <div className="d-flex justify-content-between align-items-center">
                             <div>
-                              <h4 class="h6 mb-0 text-small">Neil Sims</h4>
+                              <h4 className="h6 mb-0 text-small">Neil Sims</h4>
                             </div>
-                            <div class="text-end">
-                              <small class="text-danger">2 hrs ago</small>
+                            <div className="text-end">
+                              <small className="text-danger">2 hrs ago</small>
                             </div>
                           </div>
-                          <p class="font-small mt-1 mb-0">
+                          <p className="font-small mt-1 mb-0">
                             You've been assigned a task for "Awesome new
                             project".
                           </p>
@@ -156,27 +160,29 @@ function Tables() {
                     </a>
                     <a
                       href="."
-                      class="list-group-item list-group-item-action border-bottom"
+                      className="list-group-item list-group-item-action border-bottom"
                     >
-                      <div class="row align-items-center">
-                        <div class="col-auto">
+                      <div className="row align-items-center">
+                        <div className="col-auto">
                           {" "}
                           <img
                             alt=""
                             src="assets/img/profile-picture-3.jpg"
-                            class="avatar-md rounded"
+                            className="avatar-md rounded"
                           />
                         </div>
-                        <div class="col ps-0 m-2">
-                          <div class="d-flex justify-content-between align-items-center">
+                        <div className="col ps-0 m-2">
+                          <div className="d-flex justify-content-between align-items-center">
                             <div>
-                              <h4 class="h6 mb-0 text-small">Roberta Casas</h4>
+                              <h4 className="h6 mb-0 text-small">
+                                Roberta Casas
+                              </h4>
                             </div>
-                            <div class="text-end">
+                            <div className="text-end">
                               <small>5 hrs ago</small>
                             </div>
                           </div>
-                          <p class="font-small mt-1 mb-0">
+                          <p className="font-small mt-1 mb-0">
                             Tagged you in a document called "Financial plans",
                           </p>
                         </div>
@@ -184,27 +190,29 @@ function Tables() {
                     </a>
                     <a
                       href="."
-                      class="list-group-item list-group-item-action border-bottom"
+                      className="list-group-item list-group-item-action border-bottom"
                     >
-                      <div class="row align-items-center">
-                        <div class="col-auto">
+                      <div className="row align-items-center">
+                        <div className="col-auto">
                           {" "}
                           <img
                             alt=""
                             src="assets/img/profile-picture-4.jpg"
-                            class="avatar-md rounded"
+                            className="avatar-md rounded"
                           />
                         </div>
-                        <div class="col ps-0 ms-2">
-                          <div class="d-flex justify-content-between align-items-center">
+                        <div className="col ps-0 ms-2">
+                          <div className="d-flex justify-content-between align-items-center">
                             <div>
-                              <h4 class="h6 mb-0 text-small">Joseph Garth</h4>
+                              <h4 className="h6 mb-0 text-small">
+                                Joseph Garth
+                              </h4>
                             </div>
-                            <div class="text-end">
+                            <div className="text-end">
                               <small>1 d ago</small>
                             </div>
                           </div>
-                          <p class="font-small mt-1 mb-0">
+                          <p className="font-small mt-1 mb-0">
                             New message: "Hey, what's up? All set for the
                             presentation?"
                           </p>
@@ -213,27 +221,29 @@ function Tables() {
                     </a>
                     <a
                       href="."
-                      class="list-group-item list-group-item-action border-bottom"
+                      className="list-group-item list-group-item-action border-bottom"
                     >
-                      <div class="row align-items-center">
-                        <div class="col-auto">
+                      <div className="row align-items-center">
+                        <div className="col-auto">
                           {" "}
                           <img
                             alt=""
                             src="assets/img/profile-picture-5.jpg"
-                            class="avatar-md rounded"
+                            className="avatar-md rounded"
                           />
                         </div>
-                        <div class="col ps-0 ms-2">
-                          <div class="d-flex justify-content-between align-items-center">
+                        <div className="col ps-0 ms-2">
+                          <div className="d-flex justify-content-between align-items-center">
                             <div>
-                              <h4 class="h6 mb-0 text-small">Rohit Kumar</h4>
+                              <h4 className="h6 mb-0 text-small">
+                                Rohit Kumar
+                              </h4>
                             </div>
-                            <div class="text-end">
+                            <div className="text-end">
                               <small>2 hrs ago</small>
                             </div>
                           </div>
-                          <p class="font-small mt-1 mb-0">
+                          <p className="font-small mt-1 mb-0">
                             New message: "We need to improve the UI/UX for the
                             landing page."
                           </p>
@@ -242,10 +252,10 @@ function Tables() {
                     </a>
                     <a
                       href="."
-                      class="dropdown-item text-center fw-bold rounded-bottom py-3"
+                      className="dropdown-item text-center fw-bold rounded-bottom py-3"
                     >
                       <svg
-                        class="icon icon-xxs text-gray-400 me-1"
+                        className="icon icon-xxs text-gray-400 me-1"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -262,31 +272,34 @@ function Tables() {
                   </div>
                 </div>
               </li>
-              <li class="nav-item dropdown ms-lg-3">
+              <li className="nav-item dropdown ms-lg-3">
                 <a
-                  class="nav-link dropdown-toggle pt-1 px-0"
+                  className="nav-link dropdown-toggle pt-1 px-0"
                   href="."
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <div class="media d-flex align-items-center">
+                  <div className="media d-flex align-items-center">
                     <img
-                      class="avatar rounded-circle"
+                      className="avatar rounded-circle"
                       alt=""
                       src="assets/img/profile-picture-3.jpg"
                     />
-                    <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                      <span class="mb-0 font-small fw-bold text-gray-900">
+                    <div className="media-body ms-2 text-dark align-items-center d-none d-lg-block">
+                      <span className="mb-0 font-small fw-bold text-gray-900">
                         Rohit Kumar
                       </span>
                     </div>
                   </div>
                 </a>
-                <div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-1">
-                  <a class="dropdown-item d-flex align-items-center" href=".">
+                <div className="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-1">
+                  <a
+                    className="dropdown-item d-flex align-items-center"
+                    href="."
+                  >
                     <svg
-                      class="dropdown-icon text-gray-400 me-2"
+                      className="dropdown-icon text-gray-400 me-2"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -299,9 +312,12 @@ function Tables() {
                     </svg>
                     My Profile
                   </a>
-                  <a class="dropdown-item d-flex align-items-center" href=".">
+                  <a
+                    className="dropdown-item d-flex align-items-center"
+                    href="."
+                  >
                     <svg
-                      class="dropdown-icon text-gray-400 me-2"
+                      className="dropdown-icon text-gray-400 me-2"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -314,9 +330,12 @@ function Tables() {
                     </svg>
                     Settings
                   </a>
-                  <a class="dropdown-item d-flex align-items-center" href=".">
+                  <a
+                    className="dropdown-item d-flex align-items-center"
+                    href="."
+                  >
                     <svg
-                      class="dropdown-icon text-gray-400 me-2"
+                      className="dropdown-icon text-gray-400 me-2"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -329,9 +348,12 @@ function Tables() {
                     </svg>
                     Messages
                   </a>
-                  <a class="dropdown-item d-flex align-items-center" href=".">
+                  <a
+                    className="dropdown-item d-flex align-items-center"
+                    href="."
+                  >
                     <svg
-                      class="dropdown-icon text-gray-400 me-2"
+                      className="dropdown-icon text-gray-400 me-2"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -344,10 +366,13 @@ function Tables() {
                     </svg>
                     Support
                   </a>
-                  <div role="separator" class="dropdown-divider my-1"></div>
-                  <a class="dropdown-item d-flex align-items-center" href=".">
+                  <div role="separator" className="dropdown-divider my-1"></div>
+                  <a
+                    className="dropdown-item d-flex align-items-center"
+                    href="."
+                  >
                     <svg
-                      class="dropdown-icon text-danger me-2"
+                      className="dropdown-icon text-danger me-2"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -368,56 +393,67 @@ function Tables() {
           </div>
         </div>
       </nav>
-      <div class="py-4">
-        <div class="d-flex justify-content-between w-100 flex-wrap">
-          <div class="mb-3 mb-lg-0">
-            <h1 class="h4">Products tables</h1>
+      <div className="py-4">
+        <div className="d-flex justify-content-between w-100 flex-wrap">
+          <div className="mb-3 mb-lg-0">
+            <h1 className="h4">Workout tables</h1>
           </div>
         </div>
       </div>
-      <div class="card border-0 shadow mb-4">
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-centered table-nowrap mb-0 rounded">
-              <thead class="thead-light">
+      <div className="card border-0 shadow mb-4">
+        <div className="card-body">
+          <div className="table-responsive">
+            <table className="table table-centered table-nowrap mb-0 rounded">
+              <thead className="thead-light">
                 <tr>
-                  <th class="border-0 rounded-start">Image</th>
-                  <th class="border-0">Pack_size</th>
-                  <th class="border-0">Title</th>
-                  <th class="border-0">Brand_name</th>
-                  <th class="border-0">Price</th>
-                  <th class="border-0">Rating</th>
-                  <th class="border-0 rounded-end">Edit</th>
+                  <th className="border-0 rounded-start">Image</th>
+                  <th className="border-0">Title</th>
+                  <th className="border-0">Duration</th>
+                  <th className="border-0">Distance</th>
+                  <th className="border-0">Calories</th>
+                  <th className="border-0">Terrain</th>
+                  <th className="border-0">Pace</th>
+                  <th className="border-0">Type</th>
+                  <th className="border-0 rounded-end">Edit</th>
                 </tr>
               </thead>
               <tbody>
                 {data.length > 0 &&
                   data.map((item) => {
-                    const firstImage =
-                      item.media.length > 0 ? item.media[0] : null;
+                    // const firstImage =
+                    //   item.media.length > 0 ? item.media[0] : null;
                     return (
                       <tr key={item._id}>
                         <td>
                           <img
-                            src={firstImage.url}
-                            alt={item.name}
+                            src={item.image}
+                            alt={item.title}
                             style={{ height: "50px", width: "50px" }}
                           ></img>
                         </td>
                         <td>
-                          <p className="small">{item.pack_size}</p>
+                          <p className="small">{item.title}</p>
                         </td>
                         <td style={{ width: "20% !important;" }}>
-                          <p className="small">{item.name}</p>
+                          <p className="small">{item.duration}</p>
                         </td>
                         <td>
-                          <p className="small">{item.brand_name}</p>
+                          <p className="small">{item.distance}</p>
                         </td>
                         <td style={{ width: "10% !important;" }}>
-                          <b style={{ color: "green" }}> ₹ {item.price}</b>
+                          <b style={{ color: "green" }}>
+                            {" "}
+                            {item.caloriesBurned}
+                          </b>
                         </td>
                         <td>
-                          <b>{item.rating}</b>
+                          <b>{item.terrain}</b>
+                        </td>
+                        <td>
+                          <b>{item.pace}</b>
+                        </td>
+                        <td>
+                          <b>{item.type}</b>
                         </td>
                         <td>
                           <Link to={`/edit-product/${item._id}`}>
@@ -447,37 +483,37 @@ function Tables() {
       </div>
 
       <div
-        class="modal fade"
+        className="modal fade"
         id="delete-modal"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Are You sure want to Delete this product
               </h1>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
 
-            <div class="modal-footer text-center">
+            <div className="modal-footer text-center">
               <button
                 type="button"
-                class="btn btn-secondary modal-close"
+                className="btn btn-secondary modal-close"
                 data-bs-dismiss="modal"
               >
                 Close
               </button>
               <button
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 onClick={() => removeProduct(deleteId)}
               >
                 Delete

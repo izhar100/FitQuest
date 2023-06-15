@@ -5,7 +5,7 @@ import logo from '../assets/logo.png'
 const Navbar = () => {
   const navigate=useNavigate()
   return (
-    <Box bgColor={"#f3ffd4"}>
+    <Box bgColor={"#fdfdfd"}>
       <Flex p={"10px"}>
         <Flex width={"40%"}>
           <Image src={logo} width={"200px"} />

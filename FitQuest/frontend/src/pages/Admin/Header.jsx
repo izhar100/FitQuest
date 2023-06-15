@@ -147,7 +147,7 @@ function Header() {
                     ></path>
                   </svg>
                 </span>
-                <span className="sidebar-text">Product List</span>
+                <span className="sidebar-text">Workout List</span>
               </Link>
             </li>
             <li className="nav-item active">
