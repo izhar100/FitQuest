@@ -10,7 +10,9 @@ import HireCoach from "../pages/HireCoach/HireCoach";
 import Account from "../pages/Account/Account";
 import Content from "../pages/Content/Content";
 import DashboardMain from "../pages/Admin/DashboardMain";
+import Singleworkout from "../pages/Workout/Singleworoutpage/Singleworkout";
 import ProductList from "../pages/Admin/ProductList";
+
 
 const AllRoutes = () => {
   return (
@@ -26,7 +28,9 @@ const AllRoutes = () => {
         <Route path="/account" element={<Account />} />
         <Route path="/content" element={<Content />} />
         <Route path="/admin" element={<DashboardMain />} />
+        <Route path="/workout/:id" element={<Singleworkout />} />
         <Route path="/product-list" element={<ProductList />} />
+
       </Routes>
     </>
   );
