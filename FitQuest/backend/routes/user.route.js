@@ -4,10 +4,12 @@ const bcrypt=require("bcrypt")
 const jwt=require("jsonwebtoken")
 const { UserModel } = require("../models/user.model")
 const { userAuth } = require("../middleware/userAuth.middleware")
+const { adminAuth } = require("../middleware/adminAuth.middleware")
 const userRouter=express.Router()
 
 userRouter.post("/register",async(req,res)=>{
     const {firstName,lastName,email,password,location,age}=req.body
+    console.log(req.body)
     try {
         const user=await UserModel.findOne({email})
         if(user){
@@ -64,6 +66,15 @@ userRouter.patch("/update/:id",userAuth,async(req,res)=>{
 
     } catch (error) {
         res.status(400).json({error:error.message})
+    }
+})
+
+userRouter.get("/",adminAuth,async(req,res)=>{
+    try {
+        const users=await UserModel.find()
+        res.status(200).json({users:users})
+    } catch (error) {
+        res.status(400).json({error:error})
     }
 })
 

@@ -11,7 +11,7 @@ export const login=(loginData)=>(dispatch)=>{
     body:JSON.stringify(loginData)
   }).then(res=>res.json()).then((res)=>{
     console.log(res)
-    dispatch({type:LOGIN_SUCCESS,payload:res.token})
+    dispatch({type:LOGIN_SUCCESS,payload:res})
   }).catch((err)=>{
     dispatch({type:LOGIN_FAILURE,payload:err.message})
   })
