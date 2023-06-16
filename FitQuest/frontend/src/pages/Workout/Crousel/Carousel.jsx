@@ -42,6 +42,7 @@ const Carousel = () => {
           />
         </div>
       </Slider>
+
       <button className="workout-carousal-btn" style={{ backgroundColor: "#f3ffd4", padding: "10px 20px" }}>
         Get Started
       </button>
@@ -51,7 +52,8 @@ const Carousel = () => {
           color: "#f3ffd4",
           padding: "10px 20px",
           left: "19%",
-        }}>
+        }}
+      >
         Preview
       </button>
     </div>
