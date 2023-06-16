@@ -1,12 +1,12 @@
 .CarouselContainer {
   width: 100vw;
   height: 100vh;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
 .slider img {
   width: 100vw;
-  height: 90vh;
+  height: 95vh;
 }
 button {
   width: 9rem;

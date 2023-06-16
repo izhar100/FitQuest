@@ -1,6 +1,9 @@
 .exer {
   position: relative;
 }
+.exer:hover {
+  cursor: pointer;
+}
 .image {
   /* position: relative; */
   height: 20rem;
@@ -11,7 +14,7 @@
   position: absolute;
   font-size: 25px;
   top: 85%;
-  left: 40%;
+  left: 35%;
   color: #f3ffd4;
   background-color: #292626;
   padding: 3px 30px;
