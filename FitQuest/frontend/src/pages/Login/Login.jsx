@@ -5,22 +5,25 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { login } from '../../redux/authReducer/action'
 
 const Login = () => {
-  const {isAuth}=useSelector((store)=>{
-    console.log(store)
+  const {user}=useSelector((store)=>{
     return {
-      isAuth:store.authReducer.isAuth
+      user:store.authReducer.user
     }
-  },shallowEqual)
+  })
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
   const dispatch=useDispatch()
   const navigate=useNavigate()
 
   useEffect(()=>{
-    if(isAuth){
-      navigate("/")
+    if(user.email){
+      if(user.email=="admin@gmail.com"){
+        navigate("/admin")
+      }else{
+        navigate("/")
+      }
     }
-  },[isAuth])
+  },[user])
 
   const handleForm = () => {
     const loginData = {

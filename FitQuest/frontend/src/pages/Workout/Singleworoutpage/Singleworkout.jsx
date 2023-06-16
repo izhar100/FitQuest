@@ -1,23 +1,28 @@
 import axios from "axios";
+import "./Singleworkout.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Details from "./Details";
 
 const Singleworkout = () => {
   const [data, setdata] = useState();
   const { id } = useParams();
-  console.log(id);
+
   useEffect(() => {
     axios
       .get(`https://tame-jade-cape-buffalo-suit.cyclic.app/workout/${id}`)
       .then((response) => {
         setdata(response.data[id]);
       });
-  }, [id]);
+  }, []);
+  console.log(data);
   return (
     <div>
       {data?.map((it) => (
-        <div key={it._id}>{it.title}</div>
+        <>
+          <Details key={it._id} {...it} />
+        </>
       ))}
     </div>
   );

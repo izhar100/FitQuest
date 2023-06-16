@@ -8,7 +8,8 @@
   width: 100vw;
   height: 95vh;
 }
-.CrousalButton {
+
+.workout-carousal-btn{
   width: 9rem;
   height: 3rem;
   position: absolute;

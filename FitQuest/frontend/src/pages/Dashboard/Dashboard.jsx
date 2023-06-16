@@ -2,6 +2,9 @@
 import cycling from "./Images/cycling.jpg";
 import './Dashboard.css';
 import { Button,Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
+import DashboardCard from "./DashboardCard";
+import { useState } from "react";
 import { useEffect } from "react";
 // import { useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +15,32 @@ import { useEffect } from "react";
 //   getSingleProductData,
 // } from "../../redux/AdminProductReducer/action";
 
+
+
 const Dashboard = () => {
+
+  const [workout,setWorkout]=useState([])
+
+useEffect(()=>{
+  fetch("https://tame-jade-cape-buffalo-suit.cyclic.app/workout/dashboard",{
+    method:"GET",
+    headers:{
+      'Content-Type':'application/json',
+      Authorization:`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0OGMwODhiMGJlN2Q0YTIzMzQzYTZlZSIsImZpcnN0TmFtZSI6InNhZ2FyIiwibGFzdE5hbWUiOiJkZXN3YWwiLCJlbWFpbCI6InNhZ2FyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JEFnSENYOFVrY1BUaTM5MHRpR3hJSU9SQ3JQVWY3S2VLUC40MGhzdWVuYnNHL1dkY3cxQ05PIiwibG9jYXRpb24iOiJSb2h0YWsiLCJhZ2UiOjI1fSwiaWF0IjoxNjg2ODk4ODYzfQ.Z3AuhbBzmXOuEp5eJp_qQxR-4mEnlhgbQjJixiF3DRA`
+    }
+  }).then((res)=>{
+    return res.json()
+  }).then((res)=>{
+    console.log(res)
+    let proData=res.workout.filter((el)=>{
+      return el.isCompleted==false;
+    })
+    console.log(proData)
+    setWorkout(proData)
+  }).catch((err)=>{
+    console.log(err)
+  })
+},[])
 
   //
   // const [deleteId, setDeleteId] = useState("");
@@ -37,16 +65,17 @@ const Dashboard = () => {
   // };
   //
 
-  useEffect(()=>{
-    fetch("https://tame-jade-cape-buffalo-suit.cyclic.app/workout/all",{
-      method: "GET",
-      headers: {
-          'Content-Type': 'application/json',
-          authorization : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0OGMwODhiMGJlN2Q0YTIzMzQzYTZlZSIsImZpcnN0TmFtZSI6InNhZ2FyIiwibGFzdE5hbWUiOiJkZXN3YWwiLCJlbWFpbCI6InNhZ2FyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JEFnSENYOFVrY1BUaTM5MHRpR3hJSU9SQ3JQVWY3S2VLUC40MGhzdWVuYnNHL1dkY3cxQ05PIiwibG9jYXRpb24iOiJSb2h0YWsiLCJhZ2UiOjI1fSwiaWF0IjoxNjg2ODk4ODYzfQ.Z3AuhbBzmXOuEp5eJp_qQxR-4mEnlhgbQjJixiF3DRA`
-},
-  }).then((res)=>res.json()).then((data)=>console.log(data)).catch((err)=>console.log(err));
 
-  },[])
+//   useEffect(()=>{
+//     fetch("https://tame-jade-cape-buffalo-suit.cyclic.app/workout/all",{
+//       method: "GET",
+//       headers: {
+//           'Content-Type': 'application/json',
+//           authorization : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0OGMwODhiMGJlN2Q0YTIzMzQzYTZlZSIsImZpcnN0TmFtZSI6InNhZ2FyIiwibGFzdE5hbWUiOiJkZXN3YWwiLCJlbWFpbCI6InNhZ2FyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JEFnSENYOFVrY1BUaTM5MHRpR3hJSU9SQ3JQVWY3S2VLUC40MGhzdWVuYnNHL1dkY3cxQ05PIiwibG9jYXRpb24iOiJSb2h0YWsiLCJhZ2UiOjI1fSwiaWF0IjoxNjg2ODk4ODYzfQ.Z3AuhbBzmXOuEp5eJp_qQxR-4mEnlhgbQjJixiF3DRA`
+// },
+//   }).then((res)=>res.json()).then((data)=>console.log(data)).catch((err)=>console.log(err));
+
+//   },[])
 
   return (
     <div className="dashboard">
@@ -55,15 +84,20 @@ const Dashboard = () => {
       </div>
       <div className="image-overlay">
         <h1 className="text-over-image">Discover the power within you to overcome challenges, embrace victories, and inspire others through your athletic journey</h1>
-        <Button className="join-now" colorScheme="orange" variant='outline'>
-          Join Now
-        </Button>
+        <button className="join-now" >Join Now</button>
       </div>
       <div className="details" >
       <Text fontSize='5xl'>How Does FitQuest Help Me?</Text>
         <Text></Text>
         <h3>GET YOUR VERY OWN PERSONAL TRAINER THAT PROVIDES EVERYTHING YOU NEED TO GET IN THE BEST SHAPE OF YOUR LIFE.</h3>
       </div>
+
+      <Box w={"80%"} m={"auto"} mt={"50px"}>
+        {workout?.map((el)=>{
+          return (<DashboardCard key={el._id} {...el}/>)
+        })}
+      </Box>
+
       {/* <table className="table table-centered table-nowrap mb-0 rounded">
               <thead className="thead-light">
                 <tr>
