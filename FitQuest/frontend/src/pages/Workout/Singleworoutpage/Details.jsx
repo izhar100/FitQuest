@@ -1,5 +1,19 @@
+import axios from "axios";
+
 // eslint-disable-next-line react/prop-types
-const Details = ({ _id, title, type, distance, duration, image }) => {
+const Details = (props) => {
+    // console.log(props);
+  const { _id, title, type, distance, duration, image } = props;
+  const handleadd = () => {
+    axios
+      .post(
+        `https://tame-jade-cape-buffalo-suit.cyclic.app/workout/dashboard/add`,
+        props
+      )
+      .then((response) => {
+        console.log(response);
+      });
+  };
   return (
     <div className="main">
       <div className="image">
@@ -14,7 +28,7 @@ const Details = ({ _id, title, type, distance, duration, image }) => {
             <span className="duration">Duration :{duration}min</span>
           </span>
           <span
-            onClick={() => console.log(_id)}
+            onClick={() => handleadd()}
             style={{
               display: "flex",
               justifyContent: "center",
