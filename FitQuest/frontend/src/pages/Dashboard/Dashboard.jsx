@@ -65,6 +65,7 @@ useEffect(()=>{
   // };
   //
 
+
 //   useEffect(()=>{
 //     fetch("https://tame-jade-cape-buffalo-suit.cyclic.app/workout/all",{
 //       method: "GET",
@@ -90,11 +91,13 @@ useEffect(()=>{
         <Text></Text>
         <h3>GET YOUR VERY OWN PERSONAL TRAINER THAT PROVIDES EVERYTHING YOU NEED TO GET IN THE BEST SHAPE OF YOUR LIFE.</h3>
       </div>
+
       <Box w={"80%"} m={"auto"} mt={"50px"}>
         {workout?.map((el)=>{
           return (<DashboardCard key={el._id} {...el}/>)
         })}
       </Box>
+
       {/* <table className="table table-centered table-nowrap mb-0 rounded">
               <thead className="thead-light">
                 <tr>
