@@ -3,15 +3,14 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addProduct } from "../../redux/AdminProductReducer/action";
 let initialState = {
-  media: [],
-  pack_size: "",
-  price: 0,
-  quantity: "",
-  brand_name: "",
-  rating: "",
-  rating_count: "",
-  star_rating_percentage: "",
-  name: "",
+  image: "",
+  title: "",
+  duration: "",
+  distance: "",
+  caloriesBurned: "",
+  terrain: "",
+  speed: "",
+  type: "",
 };
 
 const AddProduct = () => {
@@ -24,26 +23,25 @@ const AddProduct = () => {
       return {
         ...prev,
         [name]:
-          name === "price" ||
-          name === "quantity" ||
-          name === "rating" ||
-          name === "rating_count" ||
-          name === "star_rating_percentage"
+          name === "duration" ||
+          name === "distance" ||
+          name === "caloriesBurned" ||
+          name === "speed"
             ? +value
             : value,
       };
     });
   };
-  const handleImageChange = (event) => {
-    const mediaObject = {
-      url: event.target.value,
-      _id: "6456b388b5bdcb2274a28572",
-    };
-    setProduct((prevFormData) => ({
-      ...prevFormData,
-      media: [mediaObject],
-    }));
-  };
+  // const handleImageChange = (event) => {
+  //   const mediaObject = {
+  //     url: event.target.value,
+  //     _id: "6456b388b5bdcb2274a28572",
+  //   };
+  //   setProduct((prevFormData) => ({
+  //     ...prevFormData,
+  //     media: [mediaObject],
+  //   }));
+  // };
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -57,22 +55,22 @@ const AddProduct = () => {
       <div className="row mt-3">
         <div className="col-12 col-xl-12">
           <div className="card card-body border-0 shadow mb-4">
-            <h2 className="h5 mb-4">Add Product Details</h2>
+            <h2 className="h5 mb-4">Add Workout Details</h2>
             <form
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
             >
-              <div className="row m-0">
+              <div className="row mt-2">
                 <div className="col-md-6 m-0">
                   <div>
-                    <label for="first_name">Product Name</label>{" "}
+                    <label for="first_name">Workout Title</label>{" "}
                     <input
                       className="form-control"
-                      id="name"
+                      id="title"
                       type="text"
-                      name="name"
-                      placeholder="product name"
+                      name="title"
+                      placeholder="product title"
                       onChange={(e) => handleChange(e)}
                       required
                     />
@@ -80,29 +78,29 @@ const AddProduct = () => {
                 </div>
                 <div className="col-md-6 m-0">
                   <div>
-                    <label for="last_name">Product Size</label>{" "}
+                    <label for="last_name">Workout duration</label>{" "}
                     <input
                       className="form-control"
-                      id="pack_size"
+                      id="duration"
                       type="text"
-                      name="pack_size"
-                      placeholder="pack_size"
+                      name="duration"
+                      placeholder="duration"
                       onChange={(e) => handleChange(e)}
                       required
                     />
                   </div>
                 </div>
               </div>
-              <div className="row align-items-center">
+              <div className="row align-items-center mt-2">
                 <div className="col-md-6 m-0">
                   <div>
-                    <label for="last_name">Product Brand_name</label>{" "}
+                    <label for="last_name">Workout distance</label>{" "}
                     <input
                       className="form-control"
-                      id="brand_name"
+                      id="distance"
                       type="text"
-                      name="brand_name"
-                      placeholder="brand_name"
+                      name="distance"
+                      placeholder="distance"
                       onChange={(e) => handleChange(e)}
                       required
                     ></input>
@@ -111,29 +109,29 @@ const AddProduct = () => {
 
                 <div className="col-sm-6 mb-3">
                   <div className="form-group">
-                    <label for="zip">Product Image</label>{" "}
+                    <label for="zip">Workout Image</label>{" "}
                     <input
                       className="form-control"
-                      id="media"
+                      id="image"
                       type="text"
-                      name="media"
-                      placeholder="Product Image URL"
-                      onChange={handleImageChange}
+                      name="image"
+                      placeholder="Workout Image URL"
+                      onChange={(e) => handleChange(e)}
                       required
                     />
                   </div>
                 </div>
               </div>
-              <div className="row">
+              <div className="row mt-2">
                 <div className="col-md-6 m-0">
                   <div>
-                    <label for="last_name">Product Price</label>{" "}
+                    <label for="last_name">Workout Calories Burn</label>{" "}
                     <input
                       className="form-control"
-                      id="price"
+                      id="caloriesBurned"
                       type="number"
-                      name="price"
-                      placeholder="price"
+                      name="caloriesBurned"
+                      placeholder="caloriesBurned"
                       onChange={(e) => handleChange(e)}
                       required
                     />
@@ -141,13 +139,13 @@ const AddProduct = () => {
                 </div>
                 <div className="col-md-6 m-0">
                   <div>
-                    <label for="last_name">Product Quantity</label>{" "}
+                    <label for="last_name">Workout terrain</label>{" "}
                     <input
                       className="form-control"
-                      id="quantity"
+                      id="terrain"
                       type="text"
-                      name="quantity"
-                      placeholder="product quantity"
+                      name="terrain"
+                      placeholder="terrain"
                       onChange={(e) => handleChange(e)}
                       required
                     />
@@ -155,16 +153,16 @@ const AddProduct = () => {
                 </div>
               </div>
 
-              <div className="row">
+              <div className="row mt-2">
                 <div className="col-md-6 m-0">
                   <div className="form-group">
-                    <label for="address">Discount</label>{" "}
+                    <label for="address">Workout Speed</label>{" "}
                     <input
                       className="form-control"
-                      id="star_rating_percentage"
+                      id="speed"
                       type="text"
-                      name="star_rating_percentage"
-                      placeholder="star_rating_percentage"
+                      name="speed"
+                      placeholder="speed"
                       onChange={(e) => handleChange(e)}
                       required
                     />
@@ -173,41 +171,26 @@ const AddProduct = () => {
 
                 <div className="col-md-6 m-0">
                   <div className="form-group">
-                    <label for="city">Avarage Rating</label>{" "}
+                    <label for="city">Workout type</label>{" "}
                     <input
                       className="form-control"
-                      id="rating"
+                      id="type"
                       type="text"
-                      name="rating"
-                      placeholder="rating"
+                      name="type"
+                      placeholder="type"
                       onChange={(e) => handleChange(e)}
                       required
                     />
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-md-6 m-0">
-                  <div className="form-group">
-                    <label for="city">Total Rating</label>{" "}
-                    <input
-                      className="form-control"
-                      id="rating_count"
-                      type="text"
-                      name="rating_count"
-                      placeholder="rating_count"
-                      onChange={(e) => handleChange(e)}
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
+
               <div className="mt-3 text-end">
                 <button
                   className="btn btn-warning mt-2 animate-up-2"
                   type="submit"
                 >
-                  Save Product
+                  Save Workout
                 </button>
               </div>
             </form>

@@ -30,6 +30,7 @@ export const deleteProductSuccess = (payload) => {
   return { type: ADMIN_DELETE_PRODUCT_SUCCESS };
 };
 
+const getToken = localStorage.getItem("token");
 export const getProductData = (dispatch) => {
   dispatch(getRequestProduct());
   axios
@@ -70,7 +71,15 @@ export const getSingleEditProductData = (id, newData) => (dispatch) => {
 export const addProduct = (payload) => (dispatch) => {
   dispatch(getRequestProduct());
   axios
-    .post("https://distinct-blue-blazer.cyclic.app/pharma/add", payload)
+    .post(
+      "https://tame-jade-cape-buffalo-suit.cyclic.app/workout/running/create",
+      {
+        headers: {
+          Authorization: "Bearer " + getToken, //the token is a variable which holds the token
+        },
+      },
+      payload
+    )
     .then(() => {
       dispatch(postProductSuccess());
     })
@@ -80,8 +89,16 @@ export const addProduct = (payload) => (dispatch) => {
 };
 export const deleteProductData = (id) => (dispatch) => {
   dispatch(getRequestProduct());
+
   axios
-    .delete(`https://distinct-blue-blazer.cyclic.app/pharma/delete/${id}`)
+    .delete(
+      `https://tame-jade-cape-buffalo-suit.cyclic.app/workout/running/delete/${id}`,
+      {
+        headers: {
+          Authorization: "Bearer " + getToken, //the token is a variable which holds the token
+        },
+      }
+    )
     .then((res) => {
       console.log(res.data);
     })
