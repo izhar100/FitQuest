@@ -12,7 +12,7 @@ import Content from "../pages/Content/Content";
 import DashboardMain from "../pages/Admin/DashboardMain";
 import Singleworkout from "../pages/Workout/Singleworoutpage/Singleworkout";
 import ProductList from "../pages/Admin/ProductList";
-
+import AddWorkout from "../pages/Admin/AdminAddProduct";
 
 const AllRoutes = () => {
   return (
@@ -30,7 +30,7 @@ const AllRoutes = () => {
         <Route path="/admin" element={<DashboardMain />} />
         <Route path="/workout/:id" element={<Singleworkout />} />
         <Route path="/product-list" element={<ProductList />} />
-
+        <Route path="/add-product" element={<AddWorkout />} />
       </Routes>
     </>
   );
