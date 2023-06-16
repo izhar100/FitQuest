@@ -40,7 +40,6 @@
     /* Additional styling for the text */
   }
   .join-now{
-    margin-top: -400px;
     margin-left: 20px;
     animation-name: slide-up;
     animation-duration: 3s;
