@@ -5,15 +5,16 @@
   cursor: pointer;
 }
 .image {
-  /* position: relative; */
-  height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 30rem;
   border-radius: 3rem 0;
 }
 .text {
   position: absolute;
   font-size: 25px;
-  top: 85%;
+  top: 80%;
   left: 35%;
   color: #f3ffd4;
   background-color: #292626;
