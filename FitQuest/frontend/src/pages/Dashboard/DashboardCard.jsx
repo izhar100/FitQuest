@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Image, Text } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
+import { CheckIcon,DeleteIcon,EditIcon } from '@chakra-ui/icons'
 
 
 const cyclingImage="https://classroomclipart.com/image/static2/preview2/cycling-workout-riding-bicycle-clipart-27118.jpg"
@@ -25,12 +26,16 @@ const DashboardCard = (el) => {
                 <Text color={"blue"} >Type: {el.type}</Text>
                 <Text color={"red"} >Distance: {el.distance}km</Text>
                 <Text color={"green"}>Duration: {el.duration}min</Text>
-                <button>Complete</button>
-                <Box style={{color:"white",backgroundColor:"lightgreen",borderRadius:"10px",width:"70px"}} ><Text style={{color:"green",paddingTop:"5px"}}>complete</Text></Box>
-                {/* <Box style={{color:"white",backgroundColor:"red",borderRadius:"10px"}} ><Text style={{color:"darkred",paddingTop:"5px"}}>
-                    <DeleteIcon />
-                </Text></Box> */}
             </Flex>
+            <Button m={5} colorScheme='green' variant='outline'>
+                    <CheckIcon/>
+            </Button>
+            <Button m={5} colorScheme='yellow' variant='outline'>
+                <EditIcon/>
+            </Button>
+            <Button m={5} colorScheme='red' variant='outline'>
+                <DeleteIcon/>
+            </Button>
           </Box>
         </Flex>
     </Box>
