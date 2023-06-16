@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import { baseURL } from '../../url'
 import ProgressCard from './ProgressCard'
 
@@ -25,11 +25,15 @@ const Progress = () => {
     })
   },[])
   return (
+    <>
+    <br />
+    <Heading textAlign={"center"}>Today's incomplete workouts</Heading>
     <Box w={"80%"} m={"auto"} mt={"50px"}>
       {workout?.map((el)=>{
         return (<ProgressCard key={el._id} {...el}/>)
       })}
     </Box>
+    </>
   )
 }
 
