@@ -5,7 +5,7 @@ const Populare = ({ url, title, image }) => {
   return (
     <div className="poular">
       <div className="exer" onClick={() => navigate(`./${url}`)}>
-        <img className="image" src={image} alt="" />
+        <img style={{ height: "20rem" }} className="image" src={image} alt="" />
         <h1 className="text">{title}</h1>
       </div>
     </div>
