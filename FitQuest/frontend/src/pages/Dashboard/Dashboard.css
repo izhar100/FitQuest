@@ -26,6 +26,7 @@
     font-size: 28px;
     text-align: left;
     margin-left: 20px;
+    margin-top: -600px;
     font-family: Arial, sans-serif;
     font-style:italic;
     background-clip: text;
@@ -36,10 +37,10 @@
     animation-duration: 3s;
     animation-delay: 0s;
     animation-fill-mode: forwards;
-
+    /* Additional styling for the text */
   }
   .join-now{
-    margin-top: 20px;
+    margin-top: -400px;
     margin-left: 20px;
     animation-name: slide-up;
     animation-duration: 3s;
