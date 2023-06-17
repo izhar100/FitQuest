@@ -10,23 +10,24 @@
   
   .image-overlay {
     position: absolute;
+    margin-top: 200px;
     top: 0;
     left: 0;
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items:flex-start;
     /* background-color: rgba(0, 0, 0, 0.5); Change the background color and transparency as desired */
   }
   
   .text-over-image {
+    position: absolute;
     color: white;
     font-size: 28px;
     text-align: left;
     margin-left: 20px;
-    margin-top: -2400px;
     font-family: Arial, sans-serif;
     font-style:italic;
     background-clip: text;
@@ -41,6 +42,7 @@
   }
   .join-now{
     margin-left: 20px;
+    margin-top: 150px;
     animation-name: slide-up;
     animation-duration: 3s;
     animation-delay: 0s;
