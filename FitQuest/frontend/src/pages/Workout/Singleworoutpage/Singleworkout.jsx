@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Details from "./Details";
+import { baseURL } from "../../../url";
 
 const Singleworkout = () => {
   const [data, setdata] = useState();
@@ -11,7 +12,7 @@ const Singleworkout = () => {
 
   useEffect(() => {
     axios
-      .get(`https://tame-jade-cape-buffalo-suit.cyclic.app/workout/${id}`)
+      .get(baseURL+`/workout/${id}`)
       .then((response) => {
         setdata(response.data[id]);
       });
