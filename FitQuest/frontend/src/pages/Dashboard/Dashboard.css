@@ -26,7 +26,7 @@
     font-size: 28px;
     text-align: left;
     margin-left: 20px;
-    margin-top: -600px;
+    margin-top: -2400px;
     font-family: Arial, sans-serif;
     font-style:italic;
     background-clip: text;
@@ -60,4 +60,6 @@
 
   .details{
     text-align: center;
+    display: flex;
+    flex-direction: column;
   }
