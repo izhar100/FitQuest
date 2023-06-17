@@ -1,4 +1,5 @@
 import axios from "axios";
+import { baseURL } from "../../../url";
 
 // eslint-disable-next-line react/prop-types
 const Details = (props) => {
@@ -7,7 +8,7 @@ const Details = (props) => {
   const handleadd = () => {
     axios
       .post(
-        `https://tame-jade-cape-buffalo-suit.cyclic.app/workout/dashboard/add`,
+        baseURL+"/workout/dashboard/add",
         props
       )
       .then((response) => {

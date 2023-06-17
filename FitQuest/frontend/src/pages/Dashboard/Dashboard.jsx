@@ -6,6 +6,7 @@ import { Box } from '@chakra-ui/react'
 import DashboardCard from "./DashboardCard";
 import { useState } from "react";
 import { useEffect } from "react";
+import { baseURL } from "../../url";
 // import { useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { Link } from "react-router-dom";
@@ -22,11 +23,11 @@ const Dashboard = () => {
   const [workout,setWorkout]=useState([])
 
 useEffect(()=>{
-  fetch("https://tame-jade-cape-buffalo-suit.cyclic.app/workout/dashboard",{
+  fetch(baseURL+"/workout/dashboard",{
     method:"GET",
     headers:{
       'Content-Type':'application/json',
-      Authorization:`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0OGMwODhiMGJlN2Q0YTIzMzQzYTZlZSIsImZpcnN0TmFtZSI6InNhZ2FyIiwibGFzdE5hbWUiOiJkZXN3YWwiLCJlbWFpbCI6InNhZ2FyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JEFnSENYOFVrY1BUaTM5MHRpR3hJSU9SQ3JQVWY3S2VLUC40MGhzdWVuYnNHL1dkY3cxQ05PIiwibG9jYXRpb24iOiJSb2h0YWsiLCJhZ2UiOjI1fSwiaWF0IjoxNjg2ODk4ODYzfQ.Z3AuhbBzmXOuEp5eJp_qQxR-4mEnlhgbQjJixiF3DRA`
+      Authorization:`Bearer ${localStorage.getItem("token")}`
     }
   }).then((res)=>{
     return res.json()
