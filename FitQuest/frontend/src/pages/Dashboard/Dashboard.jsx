@@ -54,7 +54,7 @@ const Dashboard = () => {
         <img src={cycling} alt="" className="background-image" />
       </div>
       <div className="image-overlay">
-        <h1 className="text-over-image">Discover the power within you to overcome challenges, embrace victories, and inspire others through your athletic journey</h1>
+        <Text className="text-over-image">Discover the power within you to overcome challenges, embrace victories, and inspire others through your athletic journey</Text>
         <Button className="join-now" colorScheme='orange' variant='outline'>
           Join Now
         </Button>
