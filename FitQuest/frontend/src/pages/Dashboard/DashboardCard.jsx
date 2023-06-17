@@ -1,21 +1,66 @@
 import { Box, Button, Flex, Image, Text } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
-import { CheckIcon,DeleteIcon,EditIcon } from '@chakra-ui/icons'
-
-
-const cyclingImage="https://classroomclipart.com/image/static2/preview2/cycling-workout-riding-bicycle-clipart-27118.jpg"
-
-const walkingImage="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/55754/person-walking-emoji-clipart-md.png"
-const runningImage="https://static.vecteezy.com/system/resources/previews/004/246/017/original/a-man-is-running-in-a-race-clip-art-icon-illustration-vector.jpg";
+import { CheckIcon,DeleteIcon,EditIcon } from '@chakra-ui/icons';
+import cyclingImage from "./Images1/cycling.png";
+import walkingImage from "./Images1/walk.png"
+import runningImage from "./Images1/running.png";
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteData } from '../../redux/DeshboardRdeucer/action';
 
 
 const DashboardCard = (el) => {
-    const navigate=useNavigate()
+    const navigate=useNavigate();
+    const [count,setCount] = useState(0);
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+      console.log(count);
+    },[count])
+
+    const handleDelete = (id) =>{
+
+      dispatch(deleteData(id))
+
+      // setCount(count+1)
+      // fetch(`https://fitquestbackend.onrender.com/workout/dashboard/delete/${id}`,{
+      //   method:"Delete",
+      //   headers:{
+      //     'Content-Type':'application/json',
+      //     Authorization:`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0OGMwODhiMGJlN2Q0YTIzMzQzYTZlZSIsImZpcnN0TmFtZSI6InNhZ2FyIiwibGFzdE5hbWUiOiJkZXN3YWwiLCJlbWFpbCI6InNhZ2FyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JEFnSENYOFVrY1BUaTM5MHRpR3hJSU9SQ3JQVWY3S2VLUC40MGhzdWVuYnNHL1dkY3cxQ05PIiwibG9jYXRpb24iOiJSb2h0YWsiLCJhZ2UiOjI1fSwiaWF0IjoxNjg3MDAwNjIxfQ.wR3qiftqDRTYziDh_1saMLvltHD4g2nSZgT0ecMdBxI`
+      //   }
+      // }).then((res)=>{
+      //   return res.json()
+      // }).then(()=>alert("Deleted successfully!!!"))
+    }
+    const handleComplete = (id)=>{
+
+      alert("hurray")
+      const data = {
+        ...el,
+        isComplete:true,
+      }
+
+      fetch(`https://fitquestbackend.onrender.com/workout/dashboard/update/${id}`,{
+        method:"Patch",
+        headers:{
+          'Content-Type':'application/json',
+          Authorization:`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0OGMwODhiMGJlN2Q0YTIzMzQzYTZlZSIsImZpcnN0TmFtZSI6InNhZ2FyIiwibGFzdE5hbWUiOiJkZXN3YWwiLCJlbWFpbCI6InNhZ2FyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JEFnSENYOFVrY1BUaTM5MHRpR3hJSU9SQ3JQVWY3S2VLUC40MGhzdWVuYnNHL1dkY3cxQ05PIiwibG9jYXRpb24iOiJSb2h0YWsiLCJhZ2UiOjI1fSwiaWF0IjoxNjg3MDAwNjIxfQ.wR3qiftqDRTYziDh_1saMLvltHD4g2nSZgT0ecMdBxI`
+        },
+        body: JSON.stringify(data)
+      }).then((res)=>{
+        return res.json()
+      }).then(()=>alert("Updated successfully!!!"))
+    }
+
   return (
     <Box mt={"40px"}>
         <Flex gap={"20px"} onClick={()=>navigate("/")} bgColor={"#d7ffff"} p={"20px"} borderRadius={"10px"} boxShadow={"rgba(0, 0, 0, 0.15) 0px 2px 8px"}>
-          <Box w={"100px"} h={"100px"} bgColor={"white"}   borderRadius={"10px"}>
-           <Image src={el.type=="walking"?walkingImage:el.type=="running"?runningImage:cyclingImage} w={"100%"} h={"100%"} borderRadius={"10px"}/>
+          <Box w={"100px"} h={"100px"} bgColor={"#d7ffff"}   borderRadius={"10px"}>
+            {/* {el.type === "walking" && <Image src={walkingImage} w={"100%"} h={"100%"} borderRadius={"10px"}/>}
+            {el.type === "cycling" && <Image src={cyclingImage} w={"100%"} h={"100%"} borderRadius={"10px"}/>}
+            {el.type === "running" && <Image src={runningImage} w={"100%"} h={"100%"} borderRadius={"10px"}/>} */}
+           <Image src={el.type==="walking"?walkingImage:el.type=="running"?runningImage:cyclingImage} w={"100%"} h={"100%"} borderRadius={"10px"}/>
           </Box>
           <Box  w={"90%"} pt={"5px"} pl={"20px"}>
             <Box>
@@ -26,14 +71,15 @@ const DashboardCard = (el) => {
                 <Text color={"blue"} >Type: {el.type}</Text>
                 <Text color={"red"} >Distance: {el.distance}km</Text>
                 <Text color={"green"}>Duration: {el.duration}min</Text>
+                <Text color={"blueviolet"} >Speed: {el.speed}</Text>
             </Flex>
-            <Button m={5} colorScheme='green' variant='outline'>
+            {!el.isCompleted && <Button onClick={()=>handleComplete(el._id)}  m={5} colorScheme='green' variant='outline'>
                     <CheckIcon/>
-            </Button>
-            <Button m={5} colorScheme='yellow' variant='outline'>
+            </Button>}
+            {!el.isCompleted && <Button m={5} colorScheme='yellow' variant='outline'>
                 <EditIcon/>
-            </Button>
-            <Button m={5} colorScheme='red' variant='outline'>
+            </Button>}
+            <Button m={5} onClick={()=>handleDelete(el._id)} colorScheme='red' variant='outline'>
                 <DeleteIcon/>
             </Button>
           </Box>
