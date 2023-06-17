@@ -22,7 +22,7 @@ const Dashboard = () => {
       method:"GET",
       headers:{
         'Content-Type':'application/json',
-        Authorization:`Bearer `
+        Authorization:`Bearer ${localStorage.getItem('token')}`
       }
     }).then((res)=>{
       return res.json()

@@ -34,10 +34,11 @@ const Signup = () => {
     <>
       <Image src='https://img.freepik.com/free-vector/guy-lifting-barbell-young-man-sportswear-cartoon-character-weightlifting-bodybuilder-working-out-with-dumbbell-muscle-training-physical-exercise-fitness-workout_575670-2151.jpg?w=996&t=st=1686829099~exp=1686829699~hmac=9fc8ab279e20096a6d75ed5ec80f1566b53b8b6f669c10f3ca06a5520e751056' width={"100%"} height={"100vh"} position={"absolute"} />
       <Box position={"relative"}>
-        <Box mt={"50px"}>
-          <Heading textAlign={"center"}>Create Account</Heading>
+        <Box bgColor={"#0f0f0f69"} height={"100vh"}>
           <br />
-          <Box width={{ xl: "30%", lg: "30%", md: "30%", sm: "80%",base:"80%" }} m={"auto"} bgColor={"#ffffff4b"} p={"20px"} borderRadius={"20px"}>
+          <Heading textAlign={"center"} color={"white"}>Create Account</Heading>
+          <br />
+          <Box width={{ xl: "30%", lg: "30%", md: "30%", sm: "80%",base:"80%" }} m={"auto"} bgColor={"#ffffff63"} p={"20px"} borderRadius={"20px"}>
             <Flex gap={"20px"} justifyContent={"center"}>
               <Box>
                 <FormLabel>First Name</FormLabel>
@@ -79,7 +80,7 @@ const Signup = () => {
           </Box>
           <br />
           <br />
-          <Box textAlign={"center"}><Text fontSize={"20px"} as={"b"}>Already have an account? <span style={{color:"blue",cursor:"pointer"}} onClick={()=>navigate("/login")}>Login</span>
+          <Box textAlign={"center"}><Text fontSize={"20px"} as={"b"} color={"white"}>Already have an account? <span style={{color:"blue",cursor:"pointer",fontSize:"20px",color:"#d9ff00"}} onClick={()=>navigate("/login")}>Login</span>
           </Text></Box>
         </Box>
 
