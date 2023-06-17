@@ -37,6 +37,7 @@ const Dashboard = () => {
       setWorkout(proData)
     }).catch((err)=>{
       console.log(err)
+
     })
   }, [])
 

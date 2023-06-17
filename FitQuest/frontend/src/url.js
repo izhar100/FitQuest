@@ -1,1 +1,1 @@
-export const baseURL='https://tame-jade-cape-buffalo-suit.cyclic.app'
+export const baseURL='https://fitquestbackend.onrender.com'
