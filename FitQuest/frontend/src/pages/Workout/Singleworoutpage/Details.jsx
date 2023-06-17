@@ -6,6 +6,10 @@ const Details = (props) => {
     // console.log(props);
   const { _id, title, type, distance, duration, image } = props;
   const handleadd = () => {
+    const data={
+      ...props,
+      isCompleted:false
+    }
     // axios
     //   .post(
     //     baseURL+"/workout/dashboard/add",
@@ -20,7 +24,7 @@ const Details = (props) => {
         'Content-Type':'application/json',
         'Authorization':`Bearer ${localStorage.getItem("token")}`
       },
-      body:JSON.stringify(props)
+      body:JSON.stringify(data)
     }).then((res)=>res.json()).then((res)=>{
       console.log(res)
     }).catch((err)=>{

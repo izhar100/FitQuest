@@ -9,11 +9,10 @@ import { useDispatch } from 'react-redux';
 import { deleteData } from '../../redux/DeshboardRdeucer/action';
 
 
-const DashboardCard = (el) => {
+const DashboardCard = ({el,handleFlag}) => {
     const navigate=useNavigate();
     const [count,setCount] = useState(0);
     const dispatch = useDispatch();
-
     useEffect(()=>{
       console.log(count);
     },[count])
@@ -35,28 +34,30 @@ const DashboardCard = (el) => {
     }
     const handleComplete = (id)=>{
 
-      alert("hurray")
       const data = {
         ...el,
-        isComplete:true,
+        isCompleted:true,
       }
 
       fetch(`https://fitquestbackend.onrender.com/workout/dashboard/update/${id}`,{
-        method:"Patch",
+        method:"PATCH",
         headers:{
           'Content-Type':'application/json',
-          Authorization:`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0OGMwODhiMGJlN2Q0YTIzMzQzYTZlZSIsImZpcnN0TmFtZSI6InNhZ2FyIiwibGFzdE5hbWUiOiJkZXN3YWwiLCJlbWFpbCI6InNhZ2FyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JEFnSENYOFVrY1BUaTM5MHRpR3hJSU9SQ3JQVWY3S2VLUC40MGhzdWVuYnNHL1dkY3cxQ05PIiwibG9jYXRpb24iOiJSb2h0YWsiLCJhZ2UiOjI1fSwiaWF0IjoxNjg3MDAwNjIxfQ.wR3qiftqDRTYziDh_1saMLvltHD4g2nSZgT0ecMdBxI`
+          Authorization:`Bearer ${localStorage.getItem('token')}`
         },
         body: JSON.stringify(data)
       }).then((res)=>{
         return res.json()
-      }).then(()=>alert("Updated successfully!!!"))
+      }).then(()=>{
+        alert("Updated successfully!!!")
+        handleFlag()
+      })
     }
 
   return (
     <Box mt={"40px"}>
-        <Flex gap={"20px"} onClick={()=>navigate("/")} bgColor={"#d7ffff"} p={"20px"} borderRadius={"10px"} boxShadow={"rgba(0, 0, 0, 0.15) 0px 2px 8px"}>
-          <Box w={"100px"} h={"100px"} bgColor={"#d7ffff"}   borderRadius={"10px"}>
+        <Flex gap={"20px"} onClick={()=>navigate("/")} bgColor={el.isCompleted?"#d7ffff":"#fffbb3"} p={"20px"} borderRadius={"10px"} boxShadow={"rgba(0, 0, 0, 0.15) 0px 2px 8px"}>
+          <Box w={"100px"} h={"100px"}   borderRadius={"10px"}>
             {/* {el.type === "walking" && <Image src={walkingImage} w={"100%"} h={"100%"} borderRadius={"10px"}/>}
             {el.type === "cycling" && <Image src={cyclingImage} w={"100%"} h={"100%"} borderRadius={"10px"}/>}
             {el.type === "running" && <Image src={runningImage} w={"100%"} h={"100%"} borderRadius={"10px"}/>} */}
@@ -82,6 +83,10 @@ const DashboardCard = (el) => {
             <Button m={5} onClick={()=>handleDelete(el._id)} colorScheme='red' variant='outline'>
                 <DeleteIcon/>
             </Button>
+            {el.isCompleted && <Button m={5} colorScheme='green' variant='outline'>
+                Completed
+            </Button>}
+
           </Box>
         </Flex>
     </Box>
