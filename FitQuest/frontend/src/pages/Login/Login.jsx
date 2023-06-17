@@ -33,17 +33,15 @@ const Login = () => {
     dispatch(login(loginData))
   }
 
-  
-
-
   return (
     <>
       <Image src='https://img.freepik.com/free-vector/guy-lifting-barbell-young-man-sportswear-cartoon-character-weightlifting-bodybuilder-working-out-with-dumbbell-muscle-training-physical-exercise-fitness-workout_575670-2151.jpg?w=996&t=st=1686829099~exp=1686829699~hmac=9fc8ab279e20096a6d75ed5ec80f1566b53b8b6f669c10f3ca06a5520e751056' width={"100%"} height={"100vh"} position={"absolute"} />
       <Box position={"relative"}>
-        <Box mt={"50px"}>
-          <Heading textAlign={"center"}>Sign In</Heading>
+        <Box bgColor={"#0f0f0f69"} height={"100vh"}>
           <br />
-          <Box width={{ xl: "30%", lg: "30%", md: "30%", sm: "80%",base:"80%" }} m={"auto"} bgColor={"#ffffff4b"} p={"40px"} borderRadius={"20px"}>
+          <Heading textAlign={"center"} color={"#ffffff"}>Sign In</Heading>
+          <br />
+          <Box width={{ xl: "30%", lg: "30%", md: "30%", sm: "80%",base:"80%" }} m={"auto"} bgColor={"#ffffff64"} p={"40px"} borderRadius={"20px"}>
             <Flex gap={"20px"} flexDirection={"column"} justify={"center"}>
               <Box>
                 <FormLabel>Email</FormLabel>
@@ -63,7 +61,7 @@ const Login = () => {
           </Box>
           <br />
           <br />
-          <Box textAlign={"center"}><Text fontSize={"20px"} as={"b"}>Already have an account? <span style={{color:"blue",cursor:"pointer"}} onClick={()=>navigate("/signup")}>Create Account</span>
+          <Box textAlign={"center"}><Text fontSize={"20px"} as={"b"} color={"white"}>Already have an account? <span style={{color:"#d0ff00",cursor:"pointer",fontSize:"20px"}} onClick={()=>navigate("/signup")}>Create Account</span>
           </Text></Box>
         </Box>
 

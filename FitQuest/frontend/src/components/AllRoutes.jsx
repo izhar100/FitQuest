@@ -13,12 +13,17 @@ import DashboardMain from "../pages/Admin/DashboardMain";
 import Singleworkout from "../pages/Workout/Singleworoutpage/Singleworkout";
 import ProductList from "../pages/Admin/ProductList";
 import AddWorkout from "../pages/Admin/AdminAddProduct";
+import PrivateRoutes from "./PrivateRoutes";
 
 const AllRoutes = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={
+          <PrivateRoutes>
+            <Dashboard />
+          </PrivateRoutes>
+        } />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/workout" element={<Workout />} />

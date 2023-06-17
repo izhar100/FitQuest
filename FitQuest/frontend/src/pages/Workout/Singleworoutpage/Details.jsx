@@ -6,14 +6,30 @@ const Details = (props) => {
     // console.log(props);
   const { _id, title, type, distance, duration, image } = props;
   const handleadd = () => {
-    axios
-      .post(
-        baseURL+"/workout/dashboard/add",
-        props
-      )
-      .then((response) => {
-        console.log(response);
-      });
+    const data={
+      ...props,
+      isCompleted:false
+    }
+    // axios
+    //   .post(
+    //     baseURL+"/workout/dashboard/add",
+    //     props
+    //   )
+    //   .then((response) => {
+    //     console.log(response);
+    //   });
+    fetch(baseURL+"/workout/dashboard/add",{
+      method:"POST",
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization':`Bearer ${localStorage.getItem("token")}`
+      },
+      body:JSON.stringify(data)
+    }).then((res)=>res.json()).then((res)=>{
+      console.log(res)
+    }).catch((err)=>{
+      console.log(err)
+    })
   };
   return (
     <div className="main">

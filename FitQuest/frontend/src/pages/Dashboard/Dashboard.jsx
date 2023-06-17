@@ -15,6 +15,7 @@ const Dashboard = () => {
 
   const [workout, setWorkout] = useState([]);
   const [completedData,setCompletedData] = useState([]);
+  const [flag,setFlag]=useState(true)
 
   useEffect(() => {
 
@@ -22,11 +23,12 @@ const Dashboard = () => {
       method:"GET",
       headers:{
         'Content-Type':'application/json',
-        Authorization:`Bearer ${localStorage.getItem("token")}`
+        Authorization:`Bearer ${localStorage.getItem('token')}`
       }
     }).then((res)=>{
       return res.json()
     }).then((res)=>{
+      console.log(res)
       let proData=res.workout.filter((el)=>{
         return el.isCompleted==false;
       })
@@ -39,7 +41,11 @@ const Dashboard = () => {
       console.log(err)
 
     })
-  }, [])
+  }, [flag])
+
+  const handleFlag=()=>{
+    setFlag(!flag)
+  }
 
 
   return (
@@ -57,12 +63,12 @@ const Dashboard = () => {
 
       <Box w={"80%"} m={"auto"} mt={"50px"}>
         {workout?.map((el) => {
-          return (<DashboardCard key={el._id} {...el} />)
+          return (<DashboardCard key={el._id} el={el} handleFlag={handleFlag} />)
         })}
       </Box>
       <Box w={"80%"} m={"auto"} mt={"50px"}>
         {completedData?.map((el) => {
-          return (<DashboardCard key={el._id} {...el} />)
+          return (<DashboardCard key={el._id} el={el} handleFlag={handleFlag} />)
         })}
       </Box>
       <div className="details" >
