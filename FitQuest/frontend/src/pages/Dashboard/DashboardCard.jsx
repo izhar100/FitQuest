@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Image, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Image, Text, useToast } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
 import { CheckIcon,DeleteIcon,EditIcon } from '@chakra-ui/icons';
 import cyclingImage from "./Images1/cycling.png";
@@ -13,24 +13,34 @@ const DashboardCard = ({el,handleFlag}) => {
     const navigate=useNavigate();
     const [count,setCount] = useState(0);
     const dispatch = useDispatch();
+    const toast=useToast()
     useEffect(()=>{
       console.log(count);
     },[count])
 
     const handleDelete = (id) =>{
 
-      dispatch(deleteData(id))
+      // dispatch(deleteData(id))
 
-      // setCount(count+1)
-      // fetch(`https://fitquestbackend.onrender.com/workout/dashboard/delete/${id}`,{
-      //   method:"Delete",
-      //   headers:{
-      //     'Content-Type':'application/json',
-      //     Authorization:`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0OGMwODhiMGJlN2Q0YTIzMzQzYTZlZSIsImZpcnN0TmFtZSI6InNhZ2FyIiwibGFzdE5hbWUiOiJkZXN3YWwiLCJlbWFpbCI6InNhZ2FyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JEFnSENYOFVrY1BUaTM5MHRpR3hJSU9SQ3JQVWY3S2VLUC40MGhzdWVuYnNHL1dkY3cxQ05PIiwibG9jYXRpb24iOiJSb2h0YWsiLCJhZ2UiOjI1fSwiaWF0IjoxNjg3MDAwNjIxfQ.wR3qiftqDRTYziDh_1saMLvltHD4g2nSZgT0ecMdBxI`
-      //   }
-      // }).then((res)=>{
-      //   return res.json()
-      // }).then(()=>alert("Deleted successfully!!!"))
+      setCount(count+1)
+      fetch(`https://fitquestbackend.onrender.com/workout/dashboard/delete/${id}`,{
+        method:"DELETE",
+        headers:{
+          'Content-Type':'application/json',
+          Authorization:`Bearer ${localStorage.getItem("token")}`
+        }
+      }).then((res)=>{
+        return res.json()
+      }).then(()=>{
+        handleFlag()
+        toast({
+          title: 'Workout Deleted',
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+          position:'top'
+       })
+      })
     }
     const handleComplete = (id)=>{
 
@@ -49,8 +59,14 @@ const DashboardCard = ({el,handleFlag}) => {
       }).then((res)=>{
         return res.json()
       }).then(()=>{
-        alert("Updated successfully!!!")
         handleFlag()
+        toast({
+          title: 'Workout Completed',
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+          position:'top'
+       })
       })
     }
 

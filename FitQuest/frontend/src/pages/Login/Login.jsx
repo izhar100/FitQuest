@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { login } from '../../redux/authReducer/action'
-
+import { useToast } from '@chakra-ui/react'
 const Login = () => {
   const {user}=useSelector((store)=>{
     return {
@@ -14,6 +14,7 @@ const Login = () => {
   const [password, setpassword] = useState("")
   const dispatch=useDispatch()
   const navigate=useNavigate()
+  const toast=useToast()
 
   useEffect(()=>{
     if(user.email){
@@ -26,11 +27,23 @@ const Login = () => {
   },[user])
 
   const handleForm = () => {
-    const loginData = {
-      email,
-      password
+    if(email==""||password==""){
+      toast({
+        title: 'Please enter email or password',
+        status: 'warning',
+        duration: 2000,
+        isClosable: true,
+        position:'top'
+    })
+
+    }else{
+      const loginData = {
+        email,
+        password
+      }
+      dispatch(login(loginData))
+      
     }
-    dispatch(login(loginData))
   }
 
   return (

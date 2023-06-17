@@ -1,4 +1,4 @@
-import { Box, Button, Flex, FormLabel, Heading, Image, Input, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, FormLabel, Heading, Image, Input, Text, useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { baseURL } from '../../url'
 import axios from 'axios'
@@ -11,22 +11,33 @@ const Signup = () => {
   const [location, setlocation] = useState("")
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
+  const toast=useToast()
   const navigate=useNavigate()
 
   const handleForm = () => {
-    const signupData = {
-      firstName,
-      lastName,
-      age: Number(age),
-      location,
-      email,
-      password
-    }
-    axios.post(baseURL + `/users/register`, signupData).then((res) => {
-      console.log(res.data)
-    }).catch((err) => {
-      console.log(err)
+    if(firstName==""||lastName==""||age==0 || location==""||email==""||password==""){
+      toast({
+        title: 'All fields are required',
+        status: 'warning',
+        duration: 2000,
+        isClosable: true,
+        position:'top'
     })
+    }else{
+      const signupData = {
+        firstName,
+        lastName,
+        age: Number(age),
+        location,
+        email,
+        password
+      }
+      axios.post(baseURL + `/users/register`, signupData).then((res) => {
+        console.log(res.data)
+      }).catch((err) => {
+        console.log(err)
+      })
+    }
   }
 
 
