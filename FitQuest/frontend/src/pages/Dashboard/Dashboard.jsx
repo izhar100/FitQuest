@@ -5,7 +5,7 @@ import star from "./Images/star.png";
 import doctor from "./Images/stethoscope.png";
 import workouts from "./Images/workout.png"
 import './Dashboard.css';
-import { Button, Center, Grid, GridItem, Image, Text } from '@chakra-ui/react'
+import { Button, Center, Grid, GridItem, Image, Text,Stack } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
 import DashboardCard from "./DashboardCard";
 import { useState } from "react";
