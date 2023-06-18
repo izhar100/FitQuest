@@ -15,19 +15,29 @@ import ProductList from "../pages/Admin/ProductList";
 import AddWorkout from "../pages/Admin/AdminAddProduct";
 import AdminEditProduct from "../pages/Admin/AdminEditProduct";
 import UserList from "../pages/Admin/UserList";
+import PrivateRoutes from "./PrivateRoutes";
+import PaymentPage from "../pages/HireCoach/PaymentPage";
 
 const AllRoutes = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={
+          <PrivateRoutes>
+            <Dashboard />
+          </PrivateRoutes>
+        } />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/workout" element={<Workout />} />
         <Route path="/progress" element={<Progress />} />
         <Route path="/completed" element={<Completed />} />
         <Route path="/coach" element={<HireCoach />} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/account" element={
+          <PrivateRoutes>
+           <Account />
+          </PrivateRoutes>
+        } />
         <Route path="/content" element={<Content />} />
         <Route path="/admin" element={<DashboardMain />} />
         <Route path="/workout/:id" element={<Singleworkout />} />
@@ -35,6 +45,8 @@ const AllRoutes = () => {
         <Route path="/add-product" element={<AddWorkout />} />
         <Route path="/edit-product/:id" element={<AdminEditProduct />}></Route>
         <Route path="/user-list" element={<UserList />} />
+        <Route path="/payment" element={<PaymentPage />}/>
+
       </Routes>
     </>
   );
