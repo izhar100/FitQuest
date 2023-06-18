@@ -3,8 +3,15 @@ import heart from "../Dashboard/Images/healthy-heart.png"
 import star from "../Dashboard/Images/star.png";
 import doctor from "../Dashboard/Images/stethoscope.png";
 import workouts from "../Dashboard/Images/workout.png";
+import { useNavigate } from 'react-router';
 
 const HireCoach = () => {
+  const navigate=useNavigate()
+  const handlePayment=(amount)=>{
+    localStorage.setItem("amount",amount)
+    console.log(amount)
+     navigate("/payment")
+  }
   return (
     <div>
       <div>
@@ -17,7 +24,7 @@ const HireCoach = () => {
               <Text style={{textAlign:"center" }} fontSize='3xl' color={"purple.400"}>Kayle Mars</Text>
               <Text style={{textAlign:"center" }}>This is my 1:1 offering for clients who want a completely personalized approach to resistance training and nutrition.</Text>
 
-              <Button marginLeft={"25%"} >₹5000/Month</Button>
+              <Button marginLeft={"25%"} onClick={()=>handlePayment(5000)} >₹5000/Month</Button>
             </Box>
           </Box>
         </Box>
@@ -82,7 +89,7 @@ const HireCoach = () => {
               <Text style={{textAlign:"center" }} fontSize='3xl' color={"purple.400"}>Leonardo</Text>
               <Text style={{textAlign:"center" }}>Whether you're trying to lose weight or go from scrawny to brawny, PR-Premium coaching is 100% customized to help you reach your goal with nutrition, training, mindset training and more.</Text>
 
-              <Button marginLeft={"25%"} >₹2000/Month</Button>
+              <Button marginLeft={"25%"} onClick={()=>handlePayment(2000)} >₹2000/Month</Button>
             </Box>
 
             <Box backgroundColor={"gray.400"} padding={"10px"} width={"30%"}>
@@ -91,7 +98,7 @@ const HireCoach = () => {
               <Text style={{textAlign:"center" }} fontSize='3xl' color={"purple.400"}>Jason Roy</Text>
               <Text style={{textAlign:"center" }}>The Get Fit program gives you all the essentials to take on any fitness goal: effective workouts, healthy and sustainable nutrition, and positive habit building.</Text>
 
-              <Button marginLeft={"25%"} >₹2200/Month</Button>
+              <Button marginLeft={"25%"} onClick={()=>handlePayment(2200)} >₹2200/Month</Button>
             </Box>
 
             <Box backgroundColor={"gray.400"} padding={"10px"} width={"30%"}>
@@ -100,7 +107,7 @@ const HireCoach = () => {
               <Text style={{textAlign:"center" }} fontSize='3xl' color={"purple.400"}>Vijay</Text>
               <Text style={{textAlign:"center" }}>Whether you're trying to lose weight or go from scrawny to brawny, PR-Premium coaching is 100% customized to help you reach your goal with nutrition, training, mindset training and more.</Text>
 
-              <Button marginLeft={"25%"} >₹2100/Month</Button>
+              <Button marginLeft={"25%"} onClick={()=>handlePayment(2100)} >₹2100/Month</Button>
             </Box>
           </Box>
         </Box>
@@ -118,7 +125,7 @@ const HireCoach = () => {
               <Text style={{textAlign:"center" }} fontSize='3xl' color={"purple.400"}>Bablu</Text>
               <Text style={{textAlign:"center" }}>The Get Fit program gives you all the essentials to take on any fitness goal: effective workouts, healthy and sustainable nutrition, and positive habit building.</Text>
 
-              <Button marginLeft={"25%"} >₹4000/Month</Button>
+              <Button marginLeft={"25%"} onClick={()=>handlePayment(4000)} >₹4000/Month</Button>
             </Box>
             <Box backgroundColor={"gray.400"} padding={"10px"} width={"30%"}>
               <Image margin={"auto"} alt='img' src='data:image/jpeg;base64,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'/>
@@ -126,7 +133,7 @@ const HireCoach = () => {
               <Text style={{textAlign:"center" }} fontSize='3xl' color={"purple.400"}>Guddu</Text>
               <Text style={{textAlign:"center" }}>Whether you're trying to lose weight or go from scrawny to brawny, PR-Premium coaching is 100% customized to help you reach your goal with nutrition, training, mindset training and more.</Text>
 
-              <Button marginLeft={"25%"} >₹1500/Month</Button>
+              <Button marginLeft={"25%"} onClick={()=>handlePayment(1500)}>₹1500/Month</Button>
             </Box>
           </Box>
           
