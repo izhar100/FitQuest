@@ -1,4 +1,18 @@
-# festive-crayon-1023
+# Fit Quest
+
+FitQuest is an innovative, gamified fitness tracking application designed to provide users with a curated list of daily workouts for optimal health and wellness.
+
+<h1>Pages</h1>
+<h3>User side</h3>
+-Login,
+-Signup,
+-Dashboard,
+-Workout,
+-Progress,
+-Completed,
+-Hire Coach,
+-Content,
+-Account
 
 
 <a href="https://ibb.co/wL3FJCq"><img src="https://i.ibb.co/3sG9fWb/homepage.jpg" alt="homepage" border="0" width="100%"></a>
