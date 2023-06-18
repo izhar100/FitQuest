@@ -1,4 +1,6 @@
-import { Box, Button,  Flex, Image, Popover, PopoverArrow, PopoverCloseButton, PopoverContent, PopoverTrigger, Stack, Text } from '@chakra-ui/react'
+
+import { Box, Button,  Flex, Image, Popover,useToast, PopoverArrow, PopoverCloseButton, PopoverContent, PopoverTrigger, Stack, Text } from '@chakra-ui/react'
+
 import { useNavigate } from 'react-router-dom';
 import { CheckIcon,DeleteIcon,EditIcon } from '@chakra-ui/icons';
 import cyclingImage from "./Images1/cycling.png";
@@ -11,23 +13,36 @@ import { PopoverForm } from './DashboardUpdate';
 const DashboardCard = ({el,handleFlag}) => {
     const navigate=useNavigate();
     const [count,setCount] = useState(0);
+    const dispatch = useDispatch();
+    const toast=useToast()
+
     useEffect(()=>{
       console.log(count);
     },[count])
 
     const handleDelete = (id) =>{
 
+
+
+      setCount(count+1)
       fetch(`https://fitquestbackend.onrender.com/workout/dashboard/delete/${id}`,{
-        method:"Delete",
+        method:"DELETE",
         headers:{
           'Content-Type':'application/json',
-          Authorization:`Bearer ${localStorage.getItem('token')}`
+          Authorization:`Bearer ${localStorage.getItem("token")}`
         }
       }).then((res)=>{
         return res.json()
       }).then(()=>{
-        alert("Deleted successfully!!!")
+
         handleFlag()
+        toast({
+          title: 'Workout Deleted',
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+          position:'top'
+       })
       })
     }
     const handleComplete = (id)=>{
@@ -47,8 +62,14 @@ const DashboardCard = ({el,handleFlag}) => {
       }).then((res)=>{
         return res.json()
       }).then(()=>{
-        alert("Workout Done!")
         handleFlag()
+        toast({
+          title: 'Workout Completed',
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+          position:'top'
+       })
       })
     }
       

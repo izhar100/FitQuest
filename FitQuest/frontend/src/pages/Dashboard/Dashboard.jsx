@@ -11,6 +11,7 @@ import DashboardCard from "./DashboardCard";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
 
 const Dashboard = () => {
 
@@ -18,6 +19,8 @@ const Dashboard = () => {
   const [completedData,setCompletedData] = useState([]);
   const [flag,setFlag]=useState(true);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true)
+
 
   useEffect(() => {
 
@@ -39,6 +42,7 @@ const Dashboard = () => {
       })
       setCompletedData(completeData)
       setWorkout(proData)
+      setLoading(false)
     }).catch((err)=>{
       console.log(err)
 
@@ -51,6 +55,12 @@ const Dashboard = () => {
   const handleClick = ()=>{
     navigate("/workout")
   }
+
+  // if (loading) {
+  //   return (
+      
+  //   )
+  // }
 
 
   return (
@@ -71,12 +81,30 @@ const Dashboard = () => {
       </Center>
       </Box>}
       <Box w={"80%"} m={"auto"} mt={"50px"}>
-        {workout?.map((el) => {
+        {loading?
+        <Stack m={"auto"}>
+        <Skeleton startColor='green.500' endColor='orange.500' height='100px' borderRadius={"20px"} />
+        <br />
+        <Skeleton startColor='green.500' endColor='orange.500' height='100px' borderRadius={"20px"} />
+        <br />
+      </Stack>
+        :
+        workout?.map((el) => {
           return (<DashboardCard key={el._id} el={el} handleFlag={handleFlag} />)
-        })}
+        })
+        
+        }
       </Box>
       <Box w={"80%"} m={"auto"} mt={"50px"}>
-        {completedData?.map((el) => {
+        {loading?
+        <Stack m={"auto"}>
+        <Skeleton startColor='green.500' endColor='orange.500' height='100px' borderRadius={"20px"} />
+        <br />
+        <Skeleton startColor='green.500' endColor='orange.500' height='100px' borderRadius={"20px"} />
+        <br />
+      </Stack>
+        :
+        completedData?.map((el) => {
           return (<DashboardCard key={el._id} el={el} handleFlag={handleFlag} />)
         })}
       </Box>
