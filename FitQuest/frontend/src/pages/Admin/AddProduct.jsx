@@ -9,7 +9,7 @@ let initialState = {
   distance: "",
   caloriesBurned: "",
   terrain: "",
-  speed: "",
+  pace: "",
   type: "",
 };
 
@@ -25,8 +25,7 @@ const AddProduct = () => {
         [name]:
           name === "duration" ||
           name === "distance" ||
-          name === "caloriesBurned" ||
-          name === "speed"
+          name === "caloriesBurned"
             ? +value
             : value,
       };
@@ -156,13 +155,13 @@ const AddProduct = () => {
               <div className="row mt-2">
                 <div className="col-md-6 m-0">
                   <div className="form-group">
-                    <label for="address">Workout Speed</label>{" "}
+                    <label for="address">Workout pace</label>{" "}
                     <input
                       className="form-control"
-                      id="speed"
+                      id="pace"
                       type="text"
-                      name="speed"
-                      placeholder="speed"
+                      name="pace"
+                      placeholder="pace"
                       onChange={(e) => handleChange(e)}
                       required
                     />

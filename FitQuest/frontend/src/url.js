@@ -1,1 +1,1 @@
-export const baseURL='https://fitquestbackend.onrender.com'
+export const baseURL = "https://fitquestbackend.onrender.com";

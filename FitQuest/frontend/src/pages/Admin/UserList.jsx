@@ -4,7 +4,7 @@ const UserList = () => {
   return (
     <>
       <Header></Header>
-      <main class="content">
+      <main className="content">
         <UserTable />
       </main>
     </>

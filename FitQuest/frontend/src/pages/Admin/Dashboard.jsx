@@ -9,9 +9,9 @@ function Dashboard() {
   const [orderCount, setOrderCount] = useState(0);
   function getUserCount() {
     axios
-      .get(`https://distinct-blue-blazer.cyclic.app/users`)
+      .get(`https://fitquestbackend.onrender.com/users`)
       .then((response) => {
-        setUserCount(response.data);
+        setUserCount(response.data.users);
       })
       .catch((error) => {
         console.log(error);
@@ -19,9 +19,9 @@ function Dashboard() {
   }
   function getProductCount() {
     axios
-      .get(`https://distinct-blue-blazer.cyclic.app/pharma`)
+      .get(`https://fitquestbackend.onrender.com/workout/all`)
       .then((response) => {
-        setProductCount(response.data);
+        setProductCount(response.data.all);
       })
       .catch((error) => {
         console.log(error);
@@ -495,13 +495,13 @@ function Dashboard() {
                       </svg>
                     </div>
                     <div className="d-sm-none">
-                      <h2 className="fw-extrabold h5">Total Products</h2>
+                      <h2 className="fw-extrabold h5">Total Workouts</h2>
                       <h3 className="mb-1">{productCount.length}</h3>
                     </div>
                   </div>
                   <div className="col-12 col-xl-7 px-xl-0">
                     <div className="d-none d-sm-block">
-                      <h2 className="h5">Total Products</h2>
+                      <h2 className="h5">Total Workouts</h2>
                       <h3 className="fw-extrabold mb-1">
                         {productCount.length}
                       </h3>
@@ -546,7 +546,7 @@ function Dashboard() {
             </Link>
           </div>
         </div>
-        <div className="col-12 col-sm-6 col-xl-4 mb-4">
+        {/* <div className="col-12 col-sm-6 col-xl-4 mb-4">
           <div className="card border-0 shadow">
             <Link to={"/order-list"}>
               <div className="card-body">
@@ -600,7 +600,7 @@ function Dashboard() {
               </div>
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="row">
         <div className="col-12 col-xl-12">

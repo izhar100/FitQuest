@@ -13,6 +13,8 @@ import DashboardMain from "../pages/Admin/DashboardMain";
 import Singleworkout from "../pages/Workout/Singleworoutpage/Singleworkout";
 import ProductList from "../pages/Admin/ProductList";
 import AddWorkout from "../pages/Admin/AdminAddProduct";
+import AdminEditProduct from "../pages/Admin/AdminEditProduct";
+import UserList from "../pages/Admin/UserList";
 import PrivateRoutes from "./PrivateRoutes";
 import PaymentPage from "../pages/HireCoach/PaymentPage";
 
@@ -41,7 +43,10 @@ const AllRoutes = () => {
         <Route path="/workout/:id" element={<Singleworkout />} />
         <Route path="/product-list" element={<ProductList />} />
         <Route path="/add-product" element={<AddWorkout />} />
+        <Route path="/edit-product/:id" element={<AdminEditProduct />}></Route>
+        <Route path="/user-list" element={<UserList />} />
         <Route path="/payment" element={<PaymentPage />}/>
+
       </Routes>
     </>
   );

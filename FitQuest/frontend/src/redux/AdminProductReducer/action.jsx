@@ -31,21 +31,22 @@ export const deleteProductSuccess = (payload) => {
 };
 
 const getToken = localStorage.getItem("token");
+axios.defaults.headers.common = { Authorization: `Bearer ${getToken}` };
 export const getProductData = (dispatch) => {
   dispatch(getRequestProduct());
   axios
-    .get(`https://tame-jade-cape-buffalo-suit.cyclic.app/workout/all`)
+    .get(`https://fitquestbackend.onrender.com/workout/all`)
     .then((res) => {
-      dispatch(getSuccessProduct(res.data));
+      dispatch(getSuccessProduct(res.data.all));
     })
     .catch((e) => {
       dispatch(getFailureProduct());
     });
 };
-export const getSingleProductData = (id) => (dispatch) => {
+export const  getSingleProductData = (id) => (dispatch) => {
   dispatch(getRequestProduct());
   axios
-    .get(`https://distinct-blue-blazer.cyclic.app/pharma/${id}`)
+    .get(`https://fitquestbackend.onrender.com/workout/running/${id}`)
     .then((res) => {
       dispatch(getSuccessSingleProduct(res.data));
     })
@@ -57,7 +58,7 @@ export const getSingleEditProductData = (id, newData) => (dispatch) => {
   dispatch(getRequestProduct());
   axios
     .patch(
-      `https://distinct-blue-blazer.cyclic.app/pharma/update/${id}`,
+      `https://fitquestbackend.onrender.com/workout/running/update/${id}`,
       newData
     )
     .then(() => {
@@ -92,7 +93,7 @@ export const deleteProductData = (id) => (dispatch) => {
 
   axios
     .delete(
-      `https://tame-jade-cape-buffalo-suit.cyclic.app/workout/running/delete/${id}`,
+      `https://fitquestbackend.onrender.com/workout/running/delete/${id}`,
       {
         headers: {
           Authorization: "Bearer " + getToken, //the token is a variable which holds the token
