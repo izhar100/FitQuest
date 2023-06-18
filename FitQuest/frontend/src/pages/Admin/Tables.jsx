@@ -17,7 +17,7 @@ function Tables() {
 
   useEffect(() => {
     dispatch(getProductData);
-  }, [data]);
+  }, []);
 
   const removeProduct = (id) => {
     const button = document.querySelector(".modal-close");
