@@ -3,7 +3,6 @@ import { baseURL } from "../../../url";
 
 // eslint-disable-next-line react/prop-types
 const Details = (props) => {
-    // console.log(props);
   const { _id, title, type, distance, duration, image } = props;
   const handleadd = () => {
     const data={
