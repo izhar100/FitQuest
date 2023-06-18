@@ -1,4 +1,4 @@
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actionType"
+import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOG_OUT } from "./actionType"
 
 const initState={
     isAuth:localStorage.getItem("isAuth")||false,
@@ -22,6 +22,12 @@ export const reducer=(state=initState,{type,payload})=>{
             }
             case LOGIN_FAILURE:{
                 return {...state,isLoading:false,isErorr:true,errMessage:payload}
+            }
+            case LOG_OUT:{
+                localStorage.setItem("token","")
+                localStorage.setItem("isAuth",false)
+                localStorage.setItem("user",JSON.stringify({}))
+                return {...state,isAuth:false,token:"",user:{}}
             }
             default:{
                 return state

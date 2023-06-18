@@ -31,7 +31,11 @@ const AllRoutes = () => {
         <Route path="/progress" element={<Progress />} />
         <Route path="/completed" element={<Completed />} />
         <Route path="/coach" element={<HireCoach />} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/account" element={
+          <PrivateRoutes>
+           <Account />
+          </PrivateRoutes>
+        } />
         <Route path="/content" element={<Content />} />
         <Route path="/admin" element={<DashboardMain />} />
         <Route path="/workout/:id" element={<Singleworkout />} />
