@@ -8,6 +8,7 @@ import walkingImage from "./Images1/walk.png"
 import runningImage from "./Images1/running.png";
 import { useEffect, useState } from 'react';
 import { PopoverForm } from './DashboardUpdate';
+import { useDispatch } from 'react-redux';
 
 
 const DashboardCard = ({el,handleFlag}) => {
