@@ -110,12 +110,12 @@ const Dashboard = () => {
           return (<DashboardCard key={el._id} el={el} handleFlag={handleFlag} />)
         })}
       </Box>
-      <div className="details" >
-        <Text style={{ marginTop: "50px" }} color={"GrayText"} fontSize='4xl'>How Does FitQuest Help Me?</Text>
-        <Text style={{ marginTop: "20px" }} color={"GrayText"}>
+      <Box>
+        <Text style={{ marginTop: "50px",textAlign:"center" }} color={"GrayText"} fontSize='4xl'>How Does FitQuest Help Me?</Text>
+        <Text style={{ marginTop: "20px",textAlign:"center" }} color={"GrayText"}>
           GET YOUR VERY OWN PERSONAL TRAINER THAT PROVIDES EVERYTHING YOU NEED TO GET IN THE BEST SHAPE OF YOUR LIFE.
         </Text>
-      </div>
+      </Box>
       <Grid templateColumns='repeat(2, 1fr)' w={"60%"} style={{ margin: "auto", textAlign: "center" }} gap={6}>
         <GridItem style={{ borderRadius: "10px" }} fontSize='2xl' w='100%' h='auto' p={5} bg='gray.100' >
           <Box style={{display:"flex"}}>

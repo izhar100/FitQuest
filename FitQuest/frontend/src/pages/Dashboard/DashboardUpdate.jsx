@@ -1,13 +1,14 @@
-import { Button, Input } from '@chakra-ui/react';
+import { Button, Input, useToast } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 export const PopoverForm = ({el,handleFlag}) => {
   const firstFieldRef = React.useRef(null);
   const [distance,setDistance] = useState(null);
   const [duration,setDuration] = useState(null);
+  const toast=useToast()
 
-  const handleSubmit = ()=>{
-
+  const handleSubmit = (e)=>{
+    e.preventDefault()
     console.log(el._id)
     const data = {
         ...el,
@@ -26,7 +27,13 @@ export const PopoverForm = ({el,handleFlag}) => {
         return res.json()
       }).then((res)=>{
         console.log(res)
-        alert("Updated successfully!!!")
+        toast({
+          title: `Updated`,
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+          position:'top'
+      })
         handleFlag()
       })
   }
