@@ -1,5 +1,5 @@
 import { baseURL } from "../../url"
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actionType"
+import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOG_OUT } from "./actionType"
 
 export const login=(loginData)=>(dispatch)=>{
   dispatch({type:LOGIN_REQUEST})
@@ -15,4 +15,7 @@ export const login=(loginData)=>(dispatch)=>{
   }).catch((err)=>{
     dispatch({type:LOGIN_FAILURE,payload:err.message})
   })
+}
+export const logOut=(dispatch)=>{
+  dispatch({type:LOG_OUT})
 }

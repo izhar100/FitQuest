@@ -16,15 +16,16 @@ const Login = () => {
   const navigate=useNavigate()
   const toast=useToast()
 
-  useEffect(()=>{
-    if(user.email){
-      if(user.email=="admin@gmail.com"){
-        navigate("/admin")
-      }else{
-        navigate("/")
-      }
-    }
-  },[user])
+  // useEffect(()=>{
+  //   if(user.email){
+  //     console.log(user.email)
+  //     // if(user.email=="admin@gmail.com"){
+  //     //   navigate("/admin")
+  //     // }else{
+  //     //   navigate("/")
+  //     // }
+  //   }
+  // },[user])
 
   const handleForm = () => {
     if(email==""||password==""){
