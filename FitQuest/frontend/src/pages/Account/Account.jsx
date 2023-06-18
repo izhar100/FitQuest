@@ -21,11 +21,12 @@ const Account = () => {
 
   useEffect(() => {
     if (user) {
-      setfirstName(user.firstName)
-      setlastName(user.lastName)
-      setemail(user.email)
-      setAge(user.age)
-      setlocation(user.location)
+      let users=user
+      setfirstName(users.firstName)
+      setlastName(users.lastName)
+      setemail(users.email)
+      setAge(users.age)
+      setlocation(users.location)
     }
   //   if(!isAuth){
   //     navigate("/login")
