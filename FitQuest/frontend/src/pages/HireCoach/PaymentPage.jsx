@@ -9,7 +9,11 @@ import {
   FormLabel,
   Input,
   Button,
+  useToast,
+  Text,
+  Flex,
 } from '@chakra-ui/react';
+import { useNavigate } from 'react-router';
 
 const PaymentPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('creditCard');
@@ -18,10 +22,52 @@ const PaymentPage = () => {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCVV] = useState('');
   const [upiId, setUPIId] = useState('');
+  const toast=useToast()
+  const navigate=useNavigate()
 
   const handlePayment = () => {
     // Perform payment processing logic based on the selected payment method and entered information
-    console.log(`Payment submitted using ${paymentMethod}`);
+    if(paymentMethod=="creditCard"){
+      if(!cardName || !cardNumber || !expiryDate || !cvv){
+        toast({
+          title: 'Please fill all details',
+          status: 'warning',
+          duration: 2000,
+          isClosable: true,
+          position:'top'
+        })
+      }else{
+        toast({
+          title: 'Payment Success!!! we will connect you within 24 hours',
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+          position:'top'
+        })
+        navigate("/")
+        
+      }
+    }
+    if(paymentMethod=="upi"){
+      if(!upiId){
+        toast({
+          title: 'Please enter upi id',
+          status: 'warning',
+          duration: 2000,
+          isClosable: true,
+          position:'top'
+        })
+      }else{
+        toast({
+          title: 'Payment Success!!! we will connect you within 24 hours',
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+          position:'top'
+        })
+        navigate("/")
+      }
+    }
   };
 
   return (
@@ -29,7 +75,10 @@ const PaymentPage = () => {
       <Heading as="h1" size="xl" mb="20px">
         Secure Payment
       </Heading>
-
+      <Flex justifyContent={"space-between"}>
+      <Text>Payable Amount:</Text>
+      <Text as={"b"}>₹{localStorage.getItem("amount")}.00</Text>
+      </Flex>
       <FormControl as="fieldset" mb="20px">
         <FormLabel as="legend">Select Payment Method</FormLabel>
         <RadioGroup defaultValue="creditCard" onChange={setPaymentMethod}>
