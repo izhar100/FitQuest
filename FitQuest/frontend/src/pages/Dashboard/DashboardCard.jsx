@@ -74,6 +74,9 @@ const DashboardCard = ({el,handleFlag}) => {
       })
     }
       
+    const handleEdit=()=>{
+      console.log("clicked on handelEdit")
+    }
 
 
 
@@ -92,7 +95,7 @@ const DashboardCard = ({el,handleFlag}) => {
                 <Text color={"blue"} >Type: {el.type}</Text>
                 <Text color={"red"} >Distance: {el.distance}km</Text>
                 <Text color={"green"}>Duration: {el.duration}min</Text>
-                <Text color={"blueviolet"} >Speed: {el.speed}</Text>
+                <Text color={"blueviolet"} >{el.type=="cycling"?`Speed : ${el.speed}`:el.type=="walking"?`Steps : ${el.steps}`:`Pace : ${el.pace}`}</Text>
             </Flex>
             <Flex>
             {!el.isCompleted && <Button onClick={()=>handleComplete(el._id)}  m={5} colorScheme='green' variant='outline'>
@@ -101,7 +104,7 @@ const DashboardCard = ({el,handleFlag}) => {
             {!el.isCompleted && <Box>
                 <Popover>
                   <PopoverTrigger>
-                    <Button colorScheme='yellow' variant='outline'  m={5} ><EditIcon/></Button>
+                    <Button colorScheme='yellow' variant='outline'  m={5} onClick={handleEdit} ><EditIcon/></Button>
                   </PopoverTrigger>
                   <PopoverContent p={5}>
                     <PopoverArrow />
