@@ -5,17 +5,19 @@ import star from "./Images/star.png";
 import doctor from "./Images/stethoscope.png";
 import workouts from "./Images/workout.png"
 import './Dashboard.css';
-import { Button, Grid, GridItem, Image, Text } from '@chakra-ui/react'
+import { Button, Center, Grid, GridItem, Image, Text } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
 import DashboardCard from "./DashboardCard";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
 
   const [workout, setWorkout] = useState([]);
   const [completedData,setCompletedData] = useState([]);
-  const [flag,setFlag]=useState(true)
+  const [flag,setFlag]=useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -46,6 +48,9 @@ const Dashboard = () => {
   const handleFlag=()=>{
     setFlag(!flag)
   }
+  const handleClick = ()=>{
+    navigate("/workout")
+  }
 
 
   return (
@@ -60,7 +65,11 @@ const Dashboard = () => {
         </Button>
       </div>
 
-
+      {workout.length===0 && completedData.length===0 && <Box> <Text color={"purple.900"} textAlign={"center"} marginTop={"-50px"} fontSize='4xl'>Please Start your Journey!</Text>
+      <Center>
+      <Button onClick={handleClick} m={"auto"} colorScheme='purple' variant='outline'>Start</Button>
+      </Center>
+      </Box>}
       <Box w={"80%"} m={"auto"} mt={"50px"}>
         {workout?.map((el) => {
           return (<DashboardCard key={el._id} el={el} handleFlag={handleFlag} />)
