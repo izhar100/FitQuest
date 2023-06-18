@@ -68,7 +68,7 @@ const Details = (props) => {
               justifyContent: "center",
               alignItems: "center",
             }}>
-            <span
+            <span className="butt"
               style={{
                 backgroundColor: "black",
                 color: "white",
@@ -76,6 +76,7 @@ const Details = (props) => {
                 width: "5rem",
                 borderRadius: "5px",
                 marginTop: "1rem",
+                
               }}>
               Start
             </span>

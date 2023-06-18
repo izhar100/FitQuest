@@ -8,18 +8,21 @@ import { baseURL } from "../../../url";
 import { Input } from "@chakra-ui/input";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { BsSearch } from "react-icons/bs";
+import { Button } from "@chakra-ui/react";
+import { calcLength } from "framer-motion";
 const Singleworkout = () => {
   const [data, setdata] = useState();
   const { id } = useParams();
   const [search, setSearch] = useState("");
   const [ser, setser] = useState("");
+  const [page, setPage] = useState(1);
   console.log(ser);
   useEffect(() => {
     axios.get(baseURL + `/workout/${id}`).then((response) => {
       setdata(response.data[id]);
     });
-  }, []);
-  console.log(data);
+  }, [page]);
+
   const handleSearch = () => {
     fetch(`https://fitquestbackend.onrender.com/workout/all?search=${search}`)
       .then((res) => res.json())
@@ -56,6 +59,7 @@ const Singleworkout = () => {
       <br />
       {data?.length > 0 ? (
         data
+          .slice(page * 4 - 4, page * 4)
           .filter((it) => it.title.toLowerCase().includes(ser.toLowerCase()))
           .map((it, ind) => <Details key={ind} {...it} />)
       ) : (
@@ -64,8 +68,37 @@ const Singleworkout = () => {
           <Text as={"b"}>No result found for this {search} query</Text>{" "}
         </Box>
       )}
+      {data?.length < 5 ? (
+        ""
+      ) : (
+        <Flex>
+          <Flex
+            margin={"auto"}
+            display={"block"}
+            alignItems={"center"}
+            marginTop={"1rem"}>
+            <Button
+              bgColor="rgb(224, 246, 243)"
+              size="md"
+              onClick={() => setPage((prev) => prev - 1)}
+              isDisabled={page === 1}>
+              Prev
+            </Button>
+            <Button bgColor="rgb(224, 246, 243)" size="md">
+              {page}
+            </Button>
+            <Button
+              bgColor="rgb(224, 246, 243)"
+              size="md"
+              onClick={() => setPage((prev) => prev + 1)}
+              isDisabled={page == Math.ceil(data?.length / 4)}>
+              Next
+            </Button>
+          </Flex>
+        </Flex>
+      )}
     </div>
   );
 };
-
+//isDisabled={Math.ceil(data.length / 5)}
 export default Singleworkout;
