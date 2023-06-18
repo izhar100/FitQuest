@@ -2,7 +2,6 @@ import axios from "axios";
 
 // eslint-disable-next-line react/prop-types
 const Details = (props) => {
-    // console.log(props);
   const { _id, title, type, distance, duration, image } = props;
   const handleadd = () => {
     axios
