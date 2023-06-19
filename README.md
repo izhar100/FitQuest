@@ -1,7 +1,7 @@
 # Fit Quest
 
 FitQuest is an innovative, gamified fitness tracking application designed to provide users with a curated list of daily workouts for optimal health and wellness.
-
+<p>Deployed link: https://fitquests.netlify.app/</p>
 <h1>Pages</h1>
 <h3>User side</h3>
 
